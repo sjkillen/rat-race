@@ -1,2 +1,5 @@
 .godot
-
+*.blend1
+*.blend2
+*.blend3
+__pycache__
