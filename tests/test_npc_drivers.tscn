@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cb5o31hacx4xh"]
+
+[ext_resource type="PackedScene" uid="uid://jk2prr2ucedt" path="res://track.tscn" id="1_ce7y6"]
+[ext_resource type="PackedScene" uid="uid://br762ciaham8y" path="res://tests/world_environment_for_tests.tscn" id="1_ufdxc"]
+[ext_resource type="PackedScene" uid="uid://das452eiw28iu" path="res://npc_driver.tscn" id="2_ufdxc"]
+
+[sub_resource type="GDScript" id="GDScript_r7jd2"]
+script/source = "extends Node3D
+
+
+const RAY_LENGTH := 1000
+var mouse_on_track: bool = false
+var mouse_position: Vector3
+
+signal click_track(pos: Vector3)
+
+# https://docs.godotengine.org/en/stable/tutorials/physics/ray-casting.html
+func cast_ray_from_mouse() -> void:
+	var space_state := get_world_3d().direct_space_state
+	var cam := get_viewport().get_camera_3d()
+	var mousepos := get_viewport().get_mouse_position()
+
+	var origin := cam.project_ray_origin(mousepos)
+	var end := origin + cam.project_ray_normal(mousepos) * RAY_LENGTH
+	var query := PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_areas = true
+
+	var result = space_state.intersect_ray(query)
+	if result.has(\"position\"):
+		mouse_on_track = true
+		mouse_position = result.get(\"position\")
+	else:
+		mouse_on_track = false
+		mouse_position = Vector3.ZERO
+		
+func _physics_process(_delta: float):
+	cast_ray_from_mouse()
+
+func _input(event: InputEvent) -> void:
+	if not mouse_on_track:
+		return
+	if event is InputEventMouse and event.is_pressed() and event.button_mask == MOUSE_BUTTON_LEFT:
+		click_track.emit(mouse_position)
+
+func _on_click_track(pos: Vector3) -> void:
+	%NpcDriver/NavigationAgent3D.target_position = pos
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldef4"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4sc8i"]
+
+[sub_resource type="GDScript" id="GDScript_txny5"]
+script/source = "extends MeshInstance3D
+
+func _ready() -> void:
+	visible = false
+
+func _on_test_npc_drivers_click_track(pos: Vector3) -> void:
+	global_position = pos
+	visible = true
+"
+
+[node name="TestNpcDrivers" type="Node3D" unique_id=2052201659]
+script = SubResource("GDScript_r7jd2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1061464654]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1537135282]
+offset_right = 375.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect" unique_id=905526649]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Click the track to set a navigation waypoint"
+
+[node name="WorldEnvironmentForTests" parent="." unique_id=481614340 instance=ExtResource("1_ufdxc")]
+
+[node name="track" parent="." unique_id=396635011 instance=ExtResource("1_ce7y6")]
+
+[node name="NpcDriver" parent="." unique_id=796486398 instance=ExtResource("2_ufdxc")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.504446, -0.56021416, 5.785883)
+
+[node name="Camera3D" type="Camera3D" parent="NpcDriver" unique_id=258493487]
+transform = Transform3D(1, 0, 0, 0, 0.8372283, 0.5468536, 0, -0.5468536, 0.8372283, 0, 5.050877, 7.853675)
+
+[node name="3DCursor" type="MeshInstance3D" parent="." unique_id=2109753324]
+unique_name_in_owner = true
+visible = false
+material_override = SubResource("StandardMaterial3D_ldef4")
+mesh = SubResource("SphereMesh_4sc8i")
+script = SubResource("GDScript_txny5")
+
+[connection signal="click_track" from="." to="." method="_on_click_track"]
+[connection signal="click_track" from="." to="3DCursor" method="_on_test_npc_drivers_click_track"]
+
+[editable path="track"]
+[editable path="NpcDriver"]
