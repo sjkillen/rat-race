@@ -10,6 +10,8 @@ config_version=5
 
 [application]
 
+config/name="Rat Race"
+run/main_scene="uid://rnhvkyg7sb5k"
 config/features=PackedStringArray("4.7")
 
 [display]
