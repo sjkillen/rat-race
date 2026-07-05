@@ -8,11 +8,15 @@
 points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldef4"]
+resource_local_to_scene = true
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_4sc8i"]
 radius = 0.1
 height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4sc8i"]
+radius = 3.1260054
 
 [node name="NpcDriver" type="CharacterBody3D" unique_id=501749123]
 script = ExtResource("1_catet")
@@ -32,3 +36,12 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0094625, 0.5056112)
 material_override = SubResource("StandardMaterial3D_ldef4")
 mesh = SubResource("SphereMesh_4sc8i")
+
+[node name="StopField" type="Area3D" parent="." unique_id=1225410982]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StopField" unique_id=576667283]
+shape = SubResource("SphereShape3D_4sc8i")
+
+[connection signal="body_entered" from="StopField" to="." method="_on_stop_field_body_entered"]
+[connection signal="body_exited" from="StopField" to="." method="_on_stop_field_body_exited"]

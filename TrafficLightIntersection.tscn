@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dtdg1mcav38fx"]
+
+[ext_resource type="Script" uid="uid://bapdbjnm7sapk" path="res://traffic_light_controller.gd" id="1_27b53"]
+
+[node name="TrafficLightIntersection" type="Area3D" unique_id=811908910]
+script = ExtResource("1_27b53")
+
+[node name="GrantedPassage" type="Area3D" parent="." unique_id=1746356572]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

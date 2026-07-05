@@ -2,17 +2,45 @@
 
 [ext_resource type="PackedScene" uid="uid://jk2prr2ucedt" path="res://track.tscn" id="1_ce7y6"]
 [ext_resource type="PackedScene" uid="uid://br762ciaham8y" path="res://tests/world_environment_for_tests.tscn" id="1_ufdxc"]
-[ext_resource type="PackedScene" uid="uid://das452eiw28iu" path="res://npc_driver.tscn" id="2_ufdxc"]
+[ext_resource type="PackedScene" uid="uid://dtdg1mcav38fx" path="res://TrafficLightIntersection.tscn" id="3_r7jd2"]
+[ext_resource type="PackedScene" uid="uid://cc3phii3vqdxo" path="res://TrafficLight.tscn" id="4_txny5"]
 
 [sub_resource type="GDScript" id="GDScript_r7jd2"]
 script/source = "extends Node3D
 
-
+const num_drivers = 100
 const RAY_LENGTH := 1000
 var mouse_on_track: bool = false
 var mouse_position: Vector3
+var current_waypoint = 0
 
 signal click_track(pos: Vector3)
+
+func _ready() -> void:
+	#visualize_waypoints()
+	distribute_drivers()
+
+func distribute_drivers():
+	var inc: int = floor(%track.waypoints.size() / num_drivers)
+	for i in range(0, %track.waypoints.size(), inc):
+		create_driver(%track.waypoints[i])
+		
+func create_driver(waypoint: WaypointData):
+	var driver: NPCDriver = preload(\"res://tests/test_npc_driver.tscn\").instantiate()
+	driver.waypoint_reached.connect(driver_reached_waypoint)
+	add_child(driver)
+	driver.global_position = waypoint.position
+	driver.set_waypoint(waypoint)
+
+func driver_reached_waypoint(who: NPCDriver, waypoint: WaypointData):
+	var next_waypoint = (waypoint.index + 1) % %track.waypoints.size()
+	who.set_waypoint(%track.waypoints[next_waypoint])
+
+func visualize_waypoints():
+	for waypoint in %track.waypoints:
+		var inst: Node3D = preload(\"test_waypoint_marker.tscn\").instantiate()
+		add_child(inst)
+		inst.global_position = waypoint
 
 # https://docs.godotengine.org/en/stable/tutorials/physics/ray-casting.html
 func cast_ray_from_mouse() -> void:
@@ -41,9 +69,6 @@ func _input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouse and event.is_pressed() and event.button_mask == MOUSE_BUTTON_LEFT:
 		click_track.emit(mouse_position)
-
-func _on_click_track(pos: Vector3) -> void:
-	%NpcDriver/NavigationAgent3D.target_position = pos
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldef4"]
@@ -61,6 +86,12 @@ func _on_test_npc_drivers_click_track(pos: Vector3) -> void:
 	global_position = pos
 	visible = true
 "
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r7jd2"]
+radius = 4.111
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4sc8i"]
+radius = 6.7005253
 
 [node name="TestNpcDrivers" type="Node3D" unique_id=2052201659]
 script = SubResource("GDScript_r7jd2")
@@ -81,10 +112,7 @@ text = "Click the track to set a navigation waypoint"
 [node name="WorldEnvironmentForTests" parent="." unique_id=481614340 instance=ExtResource("1_ufdxc")]
 
 [node name="track" parent="." unique_id=396635011 instance=ExtResource("1_ce7y6")]
-
-[node name="NpcDriver" parent="." unique_id=796486398 instance=ExtResource("2_ufdxc")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.436409, 0.50734174, -32.7119)
 
 [node name="3DCursor" type="MeshInstance3D" parent="." unique_id=2109753324]
 unique_name_in_owner = true
@@ -96,8 +124,115 @@ script = SubResource("GDScript_txny5")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=258493487]
 transform = Transform3D(1, 0, 0, 0, 0.9084013, 0.41809934, 0, -0.41809934, 0.9084013, -3.5082455, 4.679589, -25.694727)
 
-[connection signal="click_track" from="." to="." method="_on_click_track"]
+[node name="TrafficLightIntersection" parent="." unique_id=811908910 node_paths=PackedStringArray("track") instance=ExtResource("3_r7jd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.74487, -1.8078918, -17.771605)
+track = NodePath("../track")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection/GrantedPassage" parent_id_path=PackedInt32Array(811908910, 1746356572) index="0" unique_id=1816973023]
+shape = SubResource("SphereShape3D_r7jd2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection" unique_id=448247128]
+shape = SubResource("SphereShape3D_4sc8i")
+
+[node name="TrafficLight" parent="TrafficLightIntersection" unique_id=1094772682 instance=ExtResource("4_txny5")]
+transform = Transform3D(-0.62157875, 0, -0.78335166, 0, 1, 0, 0.78335166, 0, -0.62157875, 0.024477005, -0.12955499, 2.9654026)
+
+[node name="TrafficLight3" parent="TrafficLightIntersection" unique_id=1697715814 instance=ExtResource("4_txny5")]
+transform = Transform3D(0.6995666, 0, 0.71456736, 0, 1, 0, -0.71456736, 0, 0.6995666, 0.47524452, -0.111647725, -2.887909)
+
+[node name="TrafficLight2" parent="TrafficLightIntersection" unique_id=605118111 instance=ExtResource("4_txny5")]
+transform = Transform3D(-0.73110116, 0, 0.6822691, 0, 1, 0, -0.6822691, 0, -0.73110116, -3.2267475, -0.0427773, 0.07056427)
+on_state = 1
+
+[node name="TrafficLight4" parent="TrafficLightIntersection" unique_id=1530216383 instance=ExtResource("4_txny5")]
+transform = Transform3D(0.63125944, 0, -0.77557176, 0, 1, 0, 0.77557176, 0, 0.63125944, 3.8027058, -0.12828958, 0.20898056)
+on_state = 1
+
+[node name="TrafficLightIntersection2" parent="." unique_id=45426616 node_paths=PackedStringArray("track") instance=ExtResource("3_r7jd2")]
+transform = Transform3D(0.7597829, 0, 0.6501769, 0, 1, 0, -0.6501769, 0, 0.7597829, -48.79904, -0.25620294, -49.288235)
+track = NodePath("../track")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection2/GrantedPassage" parent_id_path=PackedInt32Array(45426616, 1746356572) index="0" unique_id=230124990]
+shape = SubResource("SphereShape3D_r7jd2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection2" unique_id=837954632]
+shape = SubResource("SphereShape3D_4sc8i")
+
+[node name="TrafficLight" parent="TrafficLightIntersection2" unique_id=760671598 instance=ExtResource("4_txny5")]
+transform = Transform3D(-0.62157875, 0, -0.78335166, 0, 1, 0, 0.78335166, 0, -0.62157875, 0.024477005, -0.12955499, 2.9654026)
+
+[node name="TrafficLight3" parent="TrafficLightIntersection2" unique_id=1863213713 instance=ExtResource("4_txny5")]
+transform = Transform3D(0.6995666, 0, 0.71456736, 0, 1, 0, -0.71456736, 0, 0.6995666, 0.47524452, -0.111647725, -2.887909)
+
+[node name="TrafficLight2" parent="TrafficLightIntersection2" unique_id=1468349434 instance=ExtResource("4_txny5")]
+transform = Transform3D(-0.73110116, 0, 0.6822691, 0, 1, 0, -0.6822691, 0, -0.73110116, -3.2267475, -0.0427773, 0.07056427)
+on_state = 1
+
+[node name="TrafficLight4" parent="TrafficLightIntersection2" unique_id=1549361352 instance=ExtResource("4_txny5")]
+transform = Transform3D(0.63125944, 0, -0.77557176, 0, 1, 0, 0.77557176, 0, 0.63125944, 3.8027058, -0.12828958, 0.20898056)
+on_state = 1
+
+[node name="TrafficLightIntersection4" parent="." unique_id=1219575263 node_paths=PackedStringArray("track") instance=ExtResource("3_r7jd2")]
+transform = Transform3D(0.17686439, 0, -0.98423517, 0, 1, 0, 0.98423517, 0, 0.17686439, 47.230255, -0.25620294, 15.554144)
+track = NodePath("../track")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection4/GrantedPassage" parent_id_path=PackedInt32Array(1219575263, 1746356572) index="0" unique_id=470852527]
+shape = SubResource("SphereShape3D_r7jd2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection4" unique_id=1637839345]
+shape = SubResource("SphereShape3D_4sc8i")
+
+[node name="TrafficLight" parent="TrafficLightIntersection4" unique_id=965683437 instance=ExtResource("4_txny5")]
+transform = Transform3D(-0.62157875, 0, -0.78335166, 0, 1, 0, 0.78335166, 0, -0.62157875, 0.024477005, -0.12955499, 2.9654026)
+
+[node name="TrafficLight3" parent="TrafficLightIntersection4" unique_id=925229449 instance=ExtResource("4_txny5")]
+transform = Transform3D(0.6995666, 0, 0.71456736, 0, 1, 0, -0.71456736, 0, 0.6995666, 0.47524452, -0.111647725, -2.887909)
+
+[node name="TrafficLight2" parent="TrafficLightIntersection4" unique_id=1100838539 instance=ExtResource("4_txny5")]
+transform = Transform3D(-0.73110116, 0, 0.6822691, 0, 1, 0, -0.6822691, 0, -0.73110116, -3.2267475, -0.0427773, 0.07056427)
+on_state = 1
+
+[node name="TrafficLight4" parent="TrafficLightIntersection4" unique_id=394361209 instance=ExtResource("4_txny5")]
+transform = Transform3D(0.63125944, 0, -0.77557176, 0, 1, 0, 0.77557176, 0, 0.63125944, 3.8027058, -0.12828958, 0.20898056)
+on_state = 1
+
+[node name="TrafficLightIntersection3" parent="." unique_id=74828831 node_paths=PackedStringArray("track") instance=ExtResource("3_r7jd2")]
+transform = Transform3D(0.06917146, 0, 0.9976048, 0, 1, 0, -0.9976048, 0, 0.06917146, -37.661648, -0.27397847, -71.34322)
+track = NodePath("../track")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection3/GrantedPassage" parent_id_path=PackedInt32Array(74828831, 1746356572) index="0" unique_id=1132745662]
+shape = SubResource("SphereShape3D_r7jd2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection3" unique_id=1573745522]
+shape = SubResource("SphereShape3D_4sc8i")
+
+[node name="TrafficLight" parent="TrafficLightIntersection3" unique_id=2045546555 instance=ExtResource("4_txny5")]
+transform = Transform3D(-0.62157875, 0, -0.78335166, 0, 1, 0, 0.78335166, 0, -0.62157875, -0.7121887, -0.68792844, 4.854805)
+
+[node name="TrafficLight3" parent="TrafficLightIntersection3" unique_id=1213599292 instance=ExtResource("4_txny5")]
+transform = Transform3D(0.6995666, 0, 0.71456736, 0, 1, 0, -0.71456736, 0, 0.6995666, -0.7437515, -0.111647725, -4.3241425)
+
+[node name="TrafficLight2" parent="TrafficLightIntersection3" unique_id=1678947386 instance=ExtResource("4_txny5")]
+transform = Transform3D(-0.73110116, 0, 0.6822691, 0, 1, 0, -0.6822691, 0, -0.73110116, -3.2267475, -0.0427773, 0.07056427)
+on_state = 1
+
+[node name="TrafficLight4" parent="TrafficLightIntersection3" unique_id=1607488863 instance=ExtResource("4_txny5")]
+transform = Transform3D(0.88421607, 0, -0.46707827, 0, 1, 0, 0.46707827, 0, 0.88421607, 2.3042297, -0.12828958, 0.31288147)
+on_state = 1
+
+[connection signal="click_track" from="." to="." method="nav_to"]
 [connection signal="click_track" from="." to="3DCursor" method="_on_test_npc_drivers_click_track"]
+[connection signal="body_exited" from="TrafficLightIntersection" to="TrafficLightIntersection" method="_on_body_exited"]
+[connection signal="body_entered" from="TrafficLightIntersection/GrantedPassage" to="TrafficLightIntersection" method="_on_granted_passage_body_entered"]
+[connection signal="body_exited" from="TrafficLightIntersection2" to="TrafficLightIntersection2" method="_on_body_exited"]
+[connection signal="body_entered" from="TrafficLightIntersection2/GrantedPassage" to="TrafficLightIntersection2" method="_on_granted_passage_body_entered"]
+[connection signal="body_exited" from="TrafficLightIntersection4" to="TrafficLightIntersection4" method="_on_body_exited"]
+[connection signal="body_entered" from="TrafficLightIntersection4/GrantedPassage" to="TrafficLightIntersection4" method="_on_granted_passage_body_entered"]
+[connection signal="body_exited" from="TrafficLightIntersection3" to="TrafficLightIntersection3" method="_on_body_exited"]
+[connection signal="body_entered" from="TrafficLightIntersection3/GrantedPassage" to="TrafficLightIntersection3" method="_on_granted_passage_body_entered"]
 
 [editable path="track"]
-[editable path="NpcDriver"]
+[editable path="TrafficLightIntersection"]
+[editable path="TrafficLightIntersection2"]
+[editable path="TrafficLightIntersection4"]
+[editable path="TrafficLightIntersection3"]

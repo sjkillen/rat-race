@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cidnxytc8pfcq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufdxc"]
+transparency = 1
+albedo_color = Color(0, 0.58431375, 0.78431374, 0.40784314)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4sc8i"]
+radius = 2.0
+height = 4.0
+
+[node name="Waypoint" type="MeshInstance3D" unique_id=528672596]
+material_override = SubResource("StandardMaterial3D_ufdxc")
+mesh = SubResource("SphereMesh_4sc8i")

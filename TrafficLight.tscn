@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cc3phii3vqdxo"]
+
+[ext_resource type="Script" uid="uid://b3lrkwcytad3a" path="res://traffic_light.gd" id="1_ndfud"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4sc8i"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 3.4236646
+
+[sub_resource type="BoxMesh" id="BoxMesh_4sc8i"]
+size = Vector3(0.29052734, 0.8787842, 0.77160645)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndfud"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4sc8i"]
+radius = 0.237
+height = 0.568
+
+[node name="TrafficLight" type="Node3D" unique_id=1094772682]
+script = ExtResource("1_ndfud")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=985422421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7105937, 0)
+mesh = SubResource("CylinderMesh_4sc8i")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=823777998]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.3030949, 1.6265509)
+mesh = SubResource("CylinderMesh_4sc8i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2" unique_id=290711986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022216797, 1.4785839, -0.00091814995)
+mesh = SubResource("BoxMesh_4sc8i")
+
+[node name="bulb" type="MeshInstance3D" parent="MeshInstance3D2/MeshInstance3D" unique_id=158337009]
+unique_name_in_owner = true
+transform = Transform3D(0.375, 0, 0, 0, 1, 0, 0, 0, 1, 0.16311336, 0, 0)
+material_override = SubResource("StandardMaterial3D_ndfud")
+mesh = SubResource("SphereMesh_4sc8i")
