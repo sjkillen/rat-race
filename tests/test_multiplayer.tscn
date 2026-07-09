@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://c6vvo7gg1nplx"]
+
+[ext_resource type="PackedScene" uid="uid://jk2prr2ucedt" path="res://track.tscn" id="1_45dh1"]
+[ext_resource type="PackedScene" uid="uid://br762ciaham8y" path="res://tests/world_environment_for_tests.tscn" id="1_uv42n"]
+
+[sub_resource type="GDScript" id="GDScript_owr8r"]
+script/source = "extends Node3D
+
+var room: ServerClient
+
+func _ready() -> void:
+	%RoomCommands.visible = true
+	%GameCommands.visible = false
+
+func _on_create_server_pressed() -> void:
+	setup_room(preload(\"res://multiplayer/Server.tscn\"))
+
+func _on_client_join_pressed() -> void:
+	setup_room(preload(\"res://multiplayer/Client.tscn\"))
+
+func setup_room(tscn: PackedScene):
+	var n := tscn.instantiate()
+	add_child(n)
+	room = n
+	%RoomCommands.visible = false
+	await room.online
+	%GameCommands.visible = true
+	room.player_joined.connect(player_joined)
+	
+func _on_join_game_pressed() -> void:
+	if multiplayer.is_server():
+		room.spawn_player()
+	else:
+		room.spawn_player.rpc_id(1)
+
+func player_joined(player_id: int, player: Node3D):
+	if player_id != multiplayer.get_unique_id():
+		return
+	player.activate_camera()
+"
+
+[node name="TestMultiplayer" type="Node3D" unique_id=1313550059]
+script = SubResource("GDScript_owr8r")
+
+[node name="WorldEnvironmentForTests" parent="." unique_id=481614340 instance=ExtResource("1_uv42n")]
+
+[node name="track" parent="." unique_id=396635011 instance=ExtResource("1_45dh1")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=238980124]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2110377738]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RoomCommands" type="ColorRect" parent="CanvasLayer/Control" unique_id=701341641]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 295.0
+offset_bottom = 192.0
+color = Color(0, 0, 0, 1)
+
+[node name="CreateServer" type="Button" parent="CanvasLayer/Control/RoomCommands" unique_id=220768165]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 48.0
+offset_right = 179.0
+offset_bottom = 79.0
+text = "Create Server"
+
+[node name="ClientJoin" type="Button" parent="CanvasLayer/Control/RoomCommands" unique_id=1044944816]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 90.0
+offset_right = 203.0
+offset_bottom = 121.0
+text = "Join as Client"
+
+[node name="GameCommands" type="ColorRect" parent="CanvasLayer/Control" unique_id=1000529256]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 218.0
+offset_right = 295.0
+offset_bottom = 410.0
+color = Color(0, 0, 0, 1)
+
+[node name="JoinGame" type="Button" parent="CanvasLayer/Control/GameCommands" unique_id=2065669178]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 24.0
+offset_right = 191.0
+offset_bottom = 55.0
+text = "Join Game"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=166130245]
+transform = Transform3D(1, 0, 0, 0, 0.27630243, 0.9610707, 0, -0.9610707, 0.27630243, 0, 135.80704, 0)
+
+[connection signal="pressed" from="CanvasLayer/Control/RoomCommands/CreateServer" to="." method="_on_create_server_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/RoomCommands/ClientJoin" to="." method="_on_client_join_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GameCommands/JoinGame" to="." method="_on_join_game_pressed"]

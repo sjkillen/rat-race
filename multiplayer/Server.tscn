@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b6o15e83ujwgq"]
+
+[ext_resource type="PackedScene" uid="uid://lvtxowacwmjt" path="res://multiplayer/ServerClientShared.tscn" id="1_6scc8"]
+[ext_resource type="Script" uid="uid://cs4v2n3vh506s" path="res://multiplayer/server.gd" id="1_yvo1e"]
+
+[node name="ServerClientShared" unique_id=387080112 instance=ExtResource("1_6scc8")]
+script = ExtResource("1_yvo1e")

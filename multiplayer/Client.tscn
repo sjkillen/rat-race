@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bd5qnvl715woh"]
+
+[ext_resource type="PackedScene" uid="uid://lvtxowacwmjt" path="res://multiplayer/ServerClientShared.tscn" id="1_bqi2q"]
+[ext_resource type="Script" uid="uid://d26l0pyv6j5ry" path="res://multiplayer/client.gd" id="2_0juby"]
+
+[node name="ServerClientShared" unique_id=689357464 instance=ExtResource("1_bqi2q")]
+script = ExtResource("2_0juby")
+
+[connection signal="offline" from="." to="." method="_on_offline"]
+[connection signal="online" from="." to="." method="_on_online"]
