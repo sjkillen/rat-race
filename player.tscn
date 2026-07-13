@@ -482,45 +482,57 @@ gravity_scale = 4.0
 script = ExtResource("1_4flbx")
 
 [node name="BackLeft" type="VehicleWheel3D" parent="." unique_id=905276685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.106, -0.37, -1.65)
 use_as_traction = true
 wheel_roll_influence = 0.01
+wheel_radius = 0.45
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.1
 suspension_travel = 0.15
 suspension_stiffness = 80.0
 
 [node name="Circle_003" type="MeshInstance3D" parent="BackLeft" unique_id=1758672864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.106, 0.37, 1.65)
 mesh = SubResource("ArrayMesh_pg8yh")
 
 [node name="BackRight" type="VehicleWheel3D" parent="." unique_id=2117513797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.109, -0.37, -1.65)
 use_as_traction = true
 wheel_roll_influence = 0.01
+wheel_radius = 0.45
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.1
 suspension_travel = 0.15
 suspension_stiffness = 80.0
 
 [node name="Circle_002" type="MeshInstance3D" parent="BackRight" unique_id=1411767739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.109, 0.37, 1.65)
 mesh = SubResource("ArrayMesh_iuifp")
 
 [node name="FrontRight" type="VehicleWheel3D" parent="." unique_id=381432971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.106, -0.37, 1.95)
 use_as_steering = true
 wheel_roll_influence = 0.01
+wheel_radius = 0.45
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.4
 suspension_stiffness = 120.0
 
 [node name="Circle_001" type="MeshInstance3D" parent="FrontRight" unique_id=1343604516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.106, 0.37, -1.95)
 mesh = SubResource("ArrayMesh_tipoj")
 
 [node name="FrontLeft" type="VehicleWheel3D" parent="." unique_id=476852811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.106, -0.37, 1.95)
 use_as_steering = true
 wheel_roll_influence = 0.01
+wheel_radius = 0.45
 wheel_rest_length = 0.2
 wheel_friction_slip = 1.4
 suspension_stiffness = 120.0
 
 [node name="Circle" type="MeshInstance3D" parent="FrontLeft" unique_id=1025534985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.106, 0.37, -1.95)
 mesh = SubResource("ArrayMesh_legmr")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=342612493]
@@ -530,4 +542,4 @@ mesh = SubResource("ArrayMesh_3e4w1")
 shape = SubResource("ConvexPolygonShape3D_sh265")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=658369789]
-transform = Transform3D(-1, -1.5180808e-08, 8.609463e-08, 0, 0.9848078, 0.1736482, -8.742278e-08, 0.1736482, -0.9848078, 0, 1.758, -5.57392)
+transform = Transform3D(-1, 1.5180806e-08, -8.609462e-08, 0, 0.9848077, 0.17364818, 8.742278e-08, 0.17364818, -0.9848077, 0, 3, -7)
