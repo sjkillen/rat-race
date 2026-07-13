@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://tk8q8jjdpftc"]
+
+[ext_resource type="FontFile" uid="uid://ddw3m1xmgu5ma" path="res://fonts/Barrio/Barrio-Regular.ttf" id="1_e1x85"]
+
+[resource]
+Button/constants/h_separation = 176
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_e1x85")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("1_e1x85")

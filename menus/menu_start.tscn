@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://dawmj10rhmnwk"]
+
+[ext_resource type="Script" uid="uid://cgjh5kb8bk8s" path="res://menus/logo.gd" id="1_35a1q"]
+[ext_resource type="PackedScene" uid="uid://1u5c15tkbvjl" path="res://menus/animated_logo_letter.tscn" id="2_hs3c5"]
+
+[node name="MenuStart" type="Control" unique_id=670442436]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="HBoxContainer" parent="." unique_id=1311006486]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -265.5
+offset_top = 88.535
+offset_right = 265.5
+offset_bottom = 233.535
+grow_horizontal = 2
+script = ExtResource("1_35a1q")
+
+[node name="r" type="Label" parent="Logo" unique_id=871888022 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "r"
+
+[node name="a" type="Label" parent="Logo" unique_id=839605972 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "a"
+
+[node name="t" type="Label" parent="Logo" unique_id=84003692 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "t"
+
+[node name=" " type="Label" parent="Logo" unique_id=1942543547 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = " "
+
+[node name="r2" type="Label" parent="Logo" unique_id=1423860834 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "r"
+
+[node name="a2" type="Label" parent="Logo" unique_id=742932381 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "a"
+
+[node name="c" type="Label" parent="Logo" unique_id=860651178 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "c"
+
+[node name="e" type="Label" parent="Logo" unique_id=443326313 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "e"
+
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=1758068837]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -294.0
+offset_top = -127.21002
+offset_right = 294.0
+offset_bottom = -64.21002
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Host" type="Button" parent="Buttons" unique_id=875692034]
+layout_mode = 2
+text = "Host Game"
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons" unique_id=493585729]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="JoinGame" type="Button" parent="Buttons/MarginContainer" unique_id=644842792]
+layout_mode = 2
+text = "Find Game"
+
+[node name="Quit" type="Button" parent="Buttons" unique_id=1557150028]
+layout_mode = 2
+text = "Quit"

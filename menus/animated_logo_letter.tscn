@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://1u5c15tkbvjl"]
+
+[ext_resource type="Script" uid="uid://dw0ostkag77k7" path="res://menus/animated_logo_letter.gd" id="1_uow8i"]
+
+[sub_resource type="Curve" id="Curve_6gd4g"]
+_data = [Vector2(0, 0.37078655), 0.0, 0.0, 0, 0, Vector2(0.63481224, 0.75675666), 1.3198205, 1.3198205, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_3v7y6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_6rv51"]
+resource_name = "middle_letter"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.08, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -9.967334, -0.125, 0, 0.125, 0, 0.031499468, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hebip"]
+_data = {
+&"RESET": SubResource("Animation_3v7y6"),
+&"middle_letter": SubResource("Animation_6rv51")
+}
+
+[node name="Letter" type="Label" unique_id=871888022]
+offset_right = 40.0
+offset_bottom = 19.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "R"
+script = ExtResource("1_uow8i")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="LogoLetterAnimation" type="AnimationPlayer" parent="." unique_id=294218214]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_hebip")
+autoplay = &"middle_letter"
