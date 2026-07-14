@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b7p7fkrvwyyky" path="res://player.tscn" id="1_4m6y4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mti6b"]
-size = Vector3(60, 2, 60)
+size = Vector3(60, 2, 464.14246)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mti6b"]
-size = Vector3(60, 2, 60)
+size = Vector3(55, 2, 464)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4kxuq"]
 height = 40.0
@@ -32,18 +32,26 @@ height = 40.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62yky"]
 albedo_color = Color(0, 0, 1, 1)
 
+[sub_resource type="SystemFont" id="SystemFont_mm1bc"]
+
+[sub_resource type="Theme" id="Theme_4kxuq"]
+default_font = SubResource("SystemFont_mm1bc")
+default_font_size = 22
+
 [node name="Lucia" type="Node3D" unique_id=1521041332]
 
-[node name="Nissan GTR" parent="." unique_id=1156704833 instance=ExtResource("1_4m6y4")]
-transform = Transform3D(0.30441785, 0, -0.9525386, 0, 1, 0, 0.9525386, 0, 0.30441785, 0, 5.22682, 0)
+[node name="NissanGTR" parent="." unique_id=1156704833 instance=ExtResource("1_4m6y4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.22682, -23)
 
 [node name="GroundPlane" type="StaticBody3D" parent="." unique_id=1914644254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundPlane" unique_id=191256012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 202.07123)
 shape = SubResource("BoxShape3D_mti6b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GroundPlane" unique_id=622212519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 202)
 mesh = SubResource("BoxMesh_mti6b")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1746428440]
@@ -69,3 +77,19 @@ shape = SubResource("CylinderShape3D_mti6b")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="YPillar" unique_id=1052521184]
 mesh = SubResource("CylinderMesh_mm1bc")
 surface_material_override/0 = SubResource("StandardMaterial3D_62yky")
+
+[node name="UI" type="Control" parent="." unique_id=1693195529]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_4kxuq")
+
+[node name="Speedometer" type="Label" parent="UI" unique_id=2001617867]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 157.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Speed: 0 KMH"
