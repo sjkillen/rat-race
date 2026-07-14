@@ -1,9 +1,9 @@
 extends VehicleBody3D
 
 
-const MAX_STEER = 0.8 # 45 degrees limit on turn
+const MAX_STEER = 0.8  # 45 degrees limit on turn
 const ENGINE_POWER = 300
-var up_to_speed = false
+var up_to_speed = false  # When true, allows player to die when below threshold
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,26 +15,36 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	# Gradually steers car towards in desired direction
 	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 2.5)
-	# Propel car forward
+	# Player propels car forward
 	engine_force = Input.get_axis("ui_down", "ui_up") * ENGINE_POWER
-	
-func _physics_process(delta: float) -> void:
-	
+
 	# Gets speed of car as int
 	var fwd_mps = roundi(linear_velocity.length())
 	
 	# Updates speedometer
+	# TODO: Getting the node every frame is inefficient, no? Fix
 	get_node("../UI/Speedometer").text = "Speed: %s KPH" % fwd_mps
 	
-	if fwd_mps >= 50 and up_to_speed == false:
+	# Automatically accelerate the player into a safe speed
+	# TODO: Figure out how to disable/re-enable inputs properly during the acceleration phase instead of killing the forces
+	if fwd_mps <= 60 and up_to_speed == false:
+		# Disable the controls
+		engine_force = 0.0
+		steering = 0.0
+		get_node("../UI/SpeedStatus").text = "Accelerating..."
+		apply_force(Vector3.MODEL_FRONT * ENGINE_POWER * 2)
+	
+	# Once up to speed, change the flag and allow player to accelerate at will
+	if fwd_mps >= 60 and up_to_speed == false:
 		up_to_speed = true
-		print("Up to Speed!!")
+		get_node("../UI/SpeedStatus").text = "Up to Speed!"
 	
 	# Destroys car if player falls below threshold speed.
 	if fwd_mps < 50 and up_to_speed == true:
 		destroy_car()
 	
 func destroy_car() -> void:
-	print("Too Slow!")
+	get_node("../UI/SpeedStatus").text = "Too Slow!"
