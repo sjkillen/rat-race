@@ -122,7 +122,7 @@ mesh = SubResource("SphereMesh_4sc8i")
 script = SubResource("GDScript_txny5")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=258493487]
-transform = Transform3D(1, 0, 0, 0, 0.9084013, 0.41809934, 0, -0.41809934, 0.9084013, -3.5082455, 4.679589, -25.694727)
+transform = Transform3D(0.005628753, 0.69654024, -0.71749574, -0.0010125996, 0.71751076, 0.69654685, 0.99998367, -0.0031941545, 0.0047440063, -117.102745, 91.81867, -25.694727)
 
 [node name="TrafficLightIntersection" parent="." unique_id=811908910 node_paths=PackedStringArray("track") instance=ExtResource("3_r7jd2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.74487, -1.8078918, -17.771605)
