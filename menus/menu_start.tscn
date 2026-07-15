@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cgjh5kb8bk8s" path="res://menus/logo.gd" id="1_35a1q"]
 [ext_resource type="PackedScene" uid="uid://1u5c15tkbvjl" path="res://menus/animated_logo_letter.tscn" id="2_hs3c5"]
+[ext_resource type="Script" uid="uid://dw0ostkag77k7" path="res://menus/animated_logo_letter.gd" id="3_vdkyi"]
+
+[sub_resource type="Curve" id="Curve_6gd4g"]
+_data = [Vector2(0, 0.37078655), 0.0, 0.0, 0, 0, Vector2(0.63481224, 0.75675666), 1.3198205, 1.3198205, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="MenuStart" type="Control" unique_id=670442436]
 layout_mode = 3
@@ -23,53 +28,149 @@ offset_bottom = 233.535
 grow_horizontal = 2
 script = ExtResource("1_35a1q")
 
-[node name="r" type="Label" parent="Logo" unique_id=871888022 instance=ExtResource("2_hs3c5")]
+[node name="J" type="Label" parent="Logo" unique_id=871888022 instance=ExtResource("2_hs3c5")]
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_font_sizes/font_size = 128
-text = "r"
+text = "J"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
 
-[node name="a" type="Label" parent="Logo" unique_id=839605972 instance=ExtResource("2_hs3c5")]
+[node name="u" type="Label" parent="Logo" unique_id=568512482 instance=ExtResource("2_hs3c5")]
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_font_sizes/font_size = 128
-text = "a"
+text = "u"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
 
-[node name="t" type="Label" parent="Logo" unique_id=84003692 instance=ExtResource("2_hs3c5")]
+[node name="s" type="Label" parent="Logo" unique_id=351540589 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "s"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="t" type="Label" parent="Logo" unique_id=523447697 instance=ExtResource("2_hs3c5")]
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_font_sizes/font_size = 128
 text = "t"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
 
-[node name=" " type="Label" parent="Logo" unique_id=1942543547 instance=ExtResource("2_hs3c5")]
+[node name=" " type="Label" parent="Logo" unique_id=1664250916 instance=ExtResource("2_hs3c5")]
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_font_sizes/font_size = 128
 text = " "
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
 
-[node name="r2" type="Label" parent="Logo" unique_id=1423860834 instance=ExtResource("2_hs3c5")]
+[node name="k" type="Label" parent="Logo" unique_id=842036172 instance=ExtResource("2_hs3c5")]
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_font_sizes/font_size = 128
-text = "r"
+text = "k"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
 
-[node name="a2" type="Label" parent="Logo" unique_id=742932381 instance=ExtResource("2_hs3c5")]
-layout_mode = 2
-offset_transform_enabled = true
-theme_override_font_sizes/font_size = 128
-text = "a"
-
-[node name="c" type="Label" parent="Logo" unique_id=860651178 instance=ExtResource("2_hs3c5")]
-layout_mode = 2
-offset_transform_enabled = true
-theme_override_font_sizes/font_size = 128
-text = "c"
-
-[node name="e" type="Label" parent="Logo" unique_id=443326313 instance=ExtResource("2_hs3c5")]
+[node name="e" type="Label" parent="Logo" unique_id=701786247 instance=ExtResource("2_hs3c5")]
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_font_sizes/font_size = 128
 text = "e"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="@Label@48248" type="Label" parent="Logo" unique_id=645028971 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "e"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="p" type="Label" parent="Logo" unique_id=792310207 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "p"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="@Label@48249" type="Label" parent="Logo" unique_id=1239899351 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = " "
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="@Label@48250" type="Label" parent="Logo" unique_id=1455565975 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "s"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="w" type="Label" parent="Logo" unique_id=113646205 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "w"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="i" type="Label" parent="Logo" unique_id=1891682005 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "i"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="m" type="Label" parent="Logo" unique_id=667727084 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "m"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="@Label@48251" type="Label" parent="Logo" unique_id=263273557 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "m"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="@Label@48252" type="Label" parent="Logo" unique_id=1501342870 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "i"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="n" type="Label" parent="Logo" unique_id=93701170 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "n"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
+
+[node name="g" type="Label" parent="Logo" unique_id=529670989 instance=ExtResource("2_hs3c5")]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 128
+text = "g"
+script = ExtResource("3_vdkyi")
+speed_curve = SubResource("Curve_6gd4g")
 
 [node name="Buttons" type="HBoxContainer" parent="." unique_id=1758068837]
 layout_mode = 1

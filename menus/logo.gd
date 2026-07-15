@@ -11,13 +11,7 @@ func make_letter(l):
 	print("Making ", l)
 
 func make_logo():
-	for l in "rat race":
+	for l in "Just keep swimming":
 		make_letter(l)
 
 @export_tool_button("make logo") var ml = make_logo
-
-	
-@export_tool_button("Hello", "Callable") var hello_action = hello
-
-func hello():
-	print("Hello world!")
