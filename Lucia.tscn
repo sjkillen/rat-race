@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://rnhvkyg7sb5k"]
+
+[ext_resource type="PackedScene" uid="uid://b7p7fkrvwyyky" path="res://player.tscn" id="1_4m6y4"]
+[ext_resource type="Shader" uid="uid://0shuka7rgml4" path="res://bubbles.tres" id="3_lyxng"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4kxuq"]
+height = 40.0
+radius = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mti6b"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4kxuq"]
+top_radius = 4.0
+bottom_radius = 4.0
+height = 40.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mti6b"]
+height = 40.0
+radius = 4.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mm1bc"]
+top_radius = 4.0
+bottom_radius = 4.0
+height = 40.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62yky"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_mm1bc"]
+
+[sub_resource type="Theme" id="Theme_4kxuq"]
+default_font = SubResource("SystemFont_mm1bc")
+default_font_size = 22
+
+[sub_resource type="Curve" id="Curve_ux50o"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.19101131), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lwt3a"]
+curve = SubResource("Curve_ux50o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pllyl"]
+emission_shape = 1
+emission_sphere_radius = 3.49
+velocity_pivot = Vector3(0, 1, 0)
+direction = Vector3(0, 0, 0)
+spread = 114.231
+gravity = Vector3(0, 9.8, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 6.2299976
+tangential_accel_min = -8.010002
+tangential_accel_max = 7.1099977
+scale_curve = SubResource("CurveTexture_lwt3a")
+
+[sub_resource type="Gradient" id="Gradient_ux50o"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.1213873, 0.3583815, 0.6242775, 0.78612715, 1)
+colors = PackedColorArray(0.37, 1, 0.42249995, 0.5019608, 0, 1, 1, 0.5019608, 0, 0, 1, 0.4745098, 1, 0, 1, 0.5019608, 0.97150004, 1, 0.43, 0.5019608, 0.79, 1, 1, 0.5019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gun43"]
+gradient = SubResource("Gradient_ux50o")
+repeat = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lyxng"]
+seed = 3
+frequency = 0.0079
+fractal_type = 0
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ux50o"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_lyxng")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gun43"]
+render_priority = 0
+shader = ExtResource("3_lyxng")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ux50o")
+shader_parameter/color = SubResource("GradientTexture2D_gun43")
+shader_parameter/smoothness = 0.10000000149012
+
+[sub_resource type="SphereMesh" id="SphereMesh_lyxng"]
+material = SubResource("ShaderMaterial_gun43")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lyxng"]
+render_priority = 0
+shader = ExtResource("3_lyxng")
+shader_parameter/smoothness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_4kxuq"]
+material = SubResource("ShaderMaterial_lyxng")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4kxuq"]
+size = Vector3(100, 6, 640)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kxuq"]
+size = Vector3(100, 6, 640)
+
+[node name="Lucia" type="Node3D" unique_id=1521041332]
+
+[node name="NissanGTR" parent="." unique_id=1156704833 instance=ExtResource("1_4m6y4")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, 559)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1746428440]
+transform = Transform3D(1, 0, 0, 0, 0.3901772, 0.92073977, 0, -0.92073977, 0.3901772, 0, 17.815596, 0)
+shadow_enabled = true
+
+[node name="XPillar" type="StaticBody3D" parent="." unique_id=1723567011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.759844, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XPillar" unique_id=267897639]
+shape = SubResource("CylinderShape3D_4kxuq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XPillar" unique_id=978935413]
+material_override = SubResource("StandardMaterial3D_mti6b")
+mesh = SubResource("CylinderMesh_4kxuq")
+
+[node name="YPillar" type="StaticBody3D" parent="." unique_id=1646589593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="YPillar" unique_id=579191944]
+shape = SubResource("CylinderShape3D_mti6b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="YPillar" unique_id=1052521184]
+mesh = SubResource("CylinderMesh_mm1bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_62yky")
+
+[node name="UI" type="Control" parent="." unique_id=1693195529]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4kxuq")
+
+[node name="Speedometer" type="Label" parent="UI" unique_id=2001617867]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 157.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Speed: 0 KMH"
+
+[node name="SpeedStatus" type="Label" parent="UI" unique_id=569671141]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 80.0
+offset_right = 187.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Accelerating!"
+
+[node name="Retry" type="ColorRect" parent="UI" unique_id=1675400397]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="Label" type="Label" parent="UI/Retry" unique_id=244288400]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -15.5
+offset_right = 20.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TOO SLOW!
+Press [Enter] to Retry"
+
+[node name="DeathRattle" type="GPUParticles3D" parent="." unique_id=1531589323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1.8426409)
+amount = 50
+speed_scale = 0.5
+explosiveness = 0.65
+process_material = SubResource("ParticleProcessMaterial_pllyl")
+draw_pass_1 = SubResource("SphereMesh_lyxng")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=671311924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 8)
+material_override = SubResource("ShaderMaterial_gun43")
+mesh = SubResource("SphereMesh_4kxuq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=574244968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 304)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=684839652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+shape = SubResource("BoxShape3D_4kxuq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=852242794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+mesh = SubResource("BoxMesh_4kxuq")

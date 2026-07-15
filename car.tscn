@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://doldomvvxwoc8"]
+
+[ext_resource type="PackedScene" uid="uid://dnj0mwjjpnlkg" path="res://nissan_gt-r.glb" id="1_7822p"]
+
+[node name="Sketchfab_Scene" unique_id=1689072779 instance=ExtResource("1_7822p")]
