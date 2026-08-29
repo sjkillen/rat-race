@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://di8383vohsqd2"]
+
+[ext_resource type="PackedScene" uid="uid://xeqygkyhh3bd" path="res://shark/shark.glb" id="1_s8g2r"]
+
+[node name="shark" unique_id=359580580 instance=ExtResource("1_s8g2r")]
+
+[node name="Skeleton3D" parent="SharkRig" parent_id_path=PackedInt32Array(1950768254) index="0" unique_id=2063751150]
+bones/1/rotation = Quaternion(-0.7071066, 4.2351647e-22, 0.70710695, -2.0849954e-07)
+bones/2/rotation = Quaternion(1.4743149e-07, 1.5893246e-08, -1.1821463e-14, 1)
+bones/7/rotation = Quaternion(0.051107477, 1.19601946e-17, 1.19601946e-17, 0.99869317)
+bones/8/position = Vector3(6.2665786e-05, 0.026770666, -0.42625)
+bones/8/rotation = Quaternion(0.24449734, -0.00018759375, -0.00095178763, 0.96964955)
+bones/13/rotation = Quaternion(0.9781652, 3.806063e-17, 3.8060615e-17, -0.20782898)
+bones/14/rotation = Quaternion(0.89064866, 6.6839284e-17, 6.6839284e-17, -0.45469224)
+
+[node name="SharkMesh" parent="SharkRig/Skeleton3D" index="0" unique_id=852069572]
+blend_shapes/MouthShut = 1.0
