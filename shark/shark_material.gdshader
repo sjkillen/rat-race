@@ -13,10 +13,6 @@ instance uniform vec3 skin_back_tint : source_color;
 instance uniform vec3 skin_belly_tint : source_color;
 instance uniform vec3 mouth_tint : source_color;// ffb5a9
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
 void fragment() {
 	vec3 mask = texture(shark_mask, UV).rgb;
 	
@@ -37,9 +33,8 @@ void fragment() {
 		   + mouth_mask * mouth_tint * mouth_falloff
 		   + (skin_mask * mix(skin_back_tint, skin_belly_tint, mask.r));
 	
-	ROUGHNESS = 0.0;
+	ROUGHNESS = (1.0 - mouth_falloff);
 	METALLIC = .1;
-	CLEARCOAT = 1.0;
-	CLEARCOAT_ROUGHNESS = 0.0;
-	//SPECULAR = 1.0;
+	CLEARCOAT = 1.0 * mouth_falloff;
+	CLEARCOAT_ROUGHNESS = ROUGHNESS;
 }

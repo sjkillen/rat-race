@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://trpyas78hrhu"]
+
+[ext_resource type="Script" uid="uid://dk7dfeun4sy26" path="res://multiplayer/game_room.gd" id="1_28ex8"]
+[ext_resource type="PackedScene" uid="uid://vxmb7eibvqjd" path="res://track_with_lights.tscn" id="1_rcpc7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_5nnk1"]
+size = Vector2(400, 400)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_28ex8"]
+data = PackedVector3Array(200, -200, 0, -200, -200, 0, 200, 200, 0, -200, -200, 0, -200, 200, 0, 200, 200, 0)
+
+[sub_resource type="Environment" id="Environment_5nnk1"]
+
+[node name="GameRoom" type="Node3D" unique_id=2076541178]
+script = ExtResource("1_28ex8")
+
+[node name="TrackWithLights" parent="." unique_id=307923840 instance=ExtResource("1_rcpc7")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=378984828]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -5.897377, 0)
+mesh = SubResource("QuadMesh_5nnk1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=863075603]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1788426946]
+shape = SubResource("ConcavePolygonShape3D_28ex8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=323642603]
+environment = SubResource("Environment_5nnk1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=156673594]
+transform = Transform3D(1, 0, 0, 0, 0.6083521, 0.79366726, 0, -0.79366726, 0.6083521, 0, 0, 0)

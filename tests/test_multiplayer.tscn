@@ -28,10 +28,7 @@ func setup_room(tscn: PackedScene):
 	room.player_joined.connect(player_joined)
 	
 func _on_join_game_pressed() -> void:
-	if multiplayer.is_server():
-		room.spawn_player()
-	else:
-		room.spawn_player.rpc_id(1)
+	room.spawn_player()
 
 func player_joined(player_id: int, player: Node3D):
 	if player_id != multiplayer.get_unique_id():

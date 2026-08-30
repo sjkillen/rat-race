@@ -1,4 +1,5 @@
-extends "./server_client_shared.gd"
+extends ServerClient
+class_name Client
 
 var address: String = "::1"
 
@@ -6,6 +7,7 @@ var is_online: bool = false
 # Duplicated in client/server to avoid weird bug with connecting signals in the inspector
 signal online
 signal offline
+signal connection_error(msg: String)
 
 func _ready() -> void:
 	super()
@@ -15,8 +17,10 @@ func join_server():
 	var peer := ENetMultiplayerPeer.new()
 	var err := peer.create_client(address, port)
 	if err != OK:
-		printerr("Failed to join server: ", error_string(err))
-		return
+		var msg := error_string(err)
+		printerr("Failed to join server: ", msg)
+		connection_error.emit(msg)
+		return 
 	multiplayer.multiplayer_peer = peer
 	peer.peer_connected.connect(on_peer_online)
 	peer.peer_disconnected.connect(on_peer_offline)

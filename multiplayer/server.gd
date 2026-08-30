@@ -1,4 +1,5 @@
-extends "./server_client_shared.gd"
+extends ServerClient
+class_name Server
 
 var is_online: bool = true
 signal online

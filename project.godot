@@ -14,6 +14,11 @@ config/name="Rat Race"
 run/main_scene="uid://rnhvkyg7sb5k"
 config/features=PackedStringArray("4.7")
 
+[autoload]
+
+Menu="*uid://clttvytds7xi0"
+Game="*uid://c3j3m3iix4y8p"
+
 [display]
 
 window/stretch/mode="canvas_items"

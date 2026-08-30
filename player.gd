@@ -14,6 +14,8 @@ signal alive_status(is_alive: bool)
 func _ready() -> void:
 	linear_velocity = global_basis * Vector3.MODEL_FRONT * AUTOSTART_FORCE
 	alive_status.emit(true)
+	%Camera3D.visible = is_multiplayer_authority()
+	%Camera3D.current = is_multiplayer_authority()
 
 func _process(delta: float) -> void:
 	

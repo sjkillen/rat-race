@@ -4,21 +4,28 @@ class_name ServerClient
 
 @export var port := 4547
 
-signal player_joined(id: int, node: Node3D)
+signal player_joined(id: int, node: Player)
+signal local_player_joined(node: Player)
 
 func _ready() -> void:
 	%PlayerSpawner.set_spawn_function(on_player_spawn)
+	player_joined.connect(on_player_joined)
 
 @rpc("any_peer")
-func spawn_player():
+func spawn_player() -> Player:
 	if not multiplayer.is_server():
-		push_error("Only the server can spawn players, not ", multiplayer.get_unique_id())
-		return
+		spawn_player.rpc_id(1)
+		return await local_player_joined
 	var source := multiplayer.get_remote_sender_id()
 	%PlayerSpawner.spawn(source)
+	return null
+
+func on_player_joined(id: int, node: Player):
+	if id == multiplayer.get_remote_sender_id():
+		local_player_joined.emit(node)
 
 func on_player_spawn(player_id: int):
-	var node := preload("../tests/test_player.tscn").instantiate()
+	var node: Player = preload("res://shark/shark.tscn").instantiate()
 	node.name = str(player_id)
 	node.set_multiplayer_authority(player_id, true)
 	node.connect("tree_entered", player_joined.emit.bind(player_id, node), CONNECT_ONE_SHOT)

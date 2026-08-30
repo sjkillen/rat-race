@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dom066c5hbw2g"]
+
+[ext_resource type="Script" uid="uid://dlave671r4vs5" path="res://menus/menu_join_game.gd" id="1_s228g"]
+
+[node name="MenuJoinGame" type="Control" unique_id=1485131547]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_s228g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1906431896]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.0
+offset_top = -58.5
+offset_right = 368.0
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2082978351]
+layout_mode = 2
+offset_transform_position = Vector2(0, 30.32)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "Enter Server IP AdDress"
+
+[node name="IPAddressInput" type="TextEdit" parent="VBoxContainer" unique_id=319746261]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 57.78)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "::1"
+
+[node name="ConnectionStatusLabel" type="Label" parent="VBoxContainer" unique_id=272898216]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_position = Vector2(0, 30.32)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=796125027]
+custom_minimum_size = Vector2(128.615, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -150.195
+offset_right = 102.0
+offset_bottom = -20.194824
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ConnectButton" type="Button" parent="VBoxContainer2" unique_id=194836095]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Connect"
+
+[node name="BackButton" type="Button" parent="VBoxContainer2" unique_id=662894865]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer2/ConnectButton" to="." method="_on_connect_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]

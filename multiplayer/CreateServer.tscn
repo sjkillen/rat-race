@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b82x46velwk0w"]
+
+[ext_resource type="Script" uid="uid://b5n11gl3bndia" path="res://multiplayer/create_server.gd" id="1_505ln"]
+
+[node name="CreateServer" type="Node" unique_id=707421226]
+script = ExtResource("1_505ln")

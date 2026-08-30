@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ysy0xcka1m88"]
 
 [ext_resource type="PackedScene" uid="uid://xeqygkyhh3bd" path="res://shark/shark.glb" id="1_xhb30"]
+[ext_resource type="Script" uid="uid://t8fuabufsiln" path="res://shark/shark_model.gd" id="2_jl21p"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_s8g2r"]
 filter_enabled = true
@@ -43,6 +44,7 @@ transitions = ["Start", "Shark_Idle", SubResource("AnimationNodeStateMachineTran
 graph_offset = Vector2(-201, -61)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wg4v4"]
+graph_offset = Vector2(-592, -1)
 nodes/Movement/node = SubResource("AnimationNodeStateMachine_ey0co")
 nodes/Movement/position = Vector2(-420, 60)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_s8g2r")
@@ -51,16 +53,17 @@ nodes/FaceExpression/node = SubResource("AnimationNodeStateMachine_6sns3")
 nodes/FaceExpression/position = Vector2(-357.15796, 289.79498)
 node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Movement", &"Blend2", 1, &"FaceExpression"]
 
-[node name="shark" unique_id=794544193 instance=ExtResource("1_xhb30")]
+[node name="shark_model" unique_id=794544193 instance=ExtResource("1_xhb30")]
+script = ExtResource("2_jl21p")
 
 [node name="Skeleton3D" parent="SharkRig" parent_id_path=PackedInt32Array(1411268596) index="0" unique_id=1894594994]
-bones/1/rotation = Quaternion(-0.7061013, 0.03769347, 0.70610154, 0.03769303)
-bones/2/rotation = Quaternion(0.07603957, -2.7737608e-08, 2.1152053e-09, 0.9971048)
-bones/3/rotation = Quaternion(-2.647729e-07, -1.2616768e-08, -0.047597278, 0.9988667)
-bones/4/rotation = Quaternion(-2.9755885e-08, -1.4179057e-09, -0.047597274, 0.9988667)
-bones/5/rotation = Quaternion(0.7876687, 0.2934316, -0.25986716, 0.47533664)
-bones/6/rotation = Quaternion(0.8077222, -0.23261379, 0.22292505, 0.49374115)
-bones/7/rotation = Quaternion(0.05109411, 0.0011689176, -0.022842508, 0.9984319)
+bones/1/rotation = Quaternion(-0.7054064, -0.04900624, 0.70540667, -0.04900664)
+bones/2/rotation = Quaternion(-0.09876064, -2.7682127e-08, -2.7474143e-09, 0.9951113)
+bones/3/rotation = Quaternion(-2.6478e-07, 1.2466878e-08, 0.04703181, 0.9988934)
+bones/4/rotation = Quaternion(-2.9756682e-08, 1.4010604e-09, 0.0470318, 0.9988934)
+bones/5/rotation = Quaternion(0.8076166, 0.23297973, -0.22314867, 0.49364007)
+bones/6/rotation = Quaternion(0.7878015, -0.29307476, 0.2596518, 0.4754544)
+bones/7/rotation = Quaternion(0.051085602, -0.001495295, 0.029219013, 0.99826574)
 bones/8/position = Vector3(6.270548e-05, 0.026770703, -0.42624998)
 bones/8/rotation = Quaternion(0.36890483, -6.183494e-05, -0.0009680988, 0.9294667)
 bones/13/rotation = Quaternion(0.9781652, 2.396619e-08, 3.4900015e-08, -0.20782895)
@@ -76,6 +79,8 @@ instance_shader_parameters/teeth_tint = Color(0.64841896, 0.43189463, 0, 1)
 instance_shader_parameters/tongue_tint = Color(1, 0, 0, 1)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1396559650]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeBlendTree_wg4v4")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Blend2/blend_amount = 1.0
