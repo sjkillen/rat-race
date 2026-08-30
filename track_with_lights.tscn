@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://vxmb7eibvqjd"]
 
+[ext_resource type="PackedScene" uid="uid://di8383vohsqd2" path="res://shark/shark.tscn" id="1_h3j75"]
 [ext_resource type="PackedScene" uid="uid://dtdg1mcav38fx" path="res://TrafficLightIntersection.tscn" id="1_i1ebg"]
 [ext_resource type="PackedScene" uid="uid://cc3phii3vqdxo" path="res://TrafficLight.tscn" id="2_vhnp7"]
 [ext_resource type="PackedScene" uid="uid://jk2prr2ucedt" path="res://track.tscn" id="3_v2kud"]
@@ -11,6 +12,13 @@ radius = 4.111
 radius = 6.7005253
 
 [node name="TrackWithLights" type="Node3D" unique_id=307923840]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=984483340]
+transform = Transform3D(-0.5563524, 0.76508546, -0.32421634, 0, 0.3901772, 0.92073977, 0.83094645, 0.5122558, -0.217076, 0, 17.435535, 0)
+shadow_enabled = true
+
+[node name="shark" parent="." unique_id=359580580 instance=ExtResource("1_h3j75")]
+transform = Transform3D(-0.5563524, 0, -0.83094645, 0, 1, 0, 0.83094645, 0, -0.5563524, 0, -1.8267051, 0)
 
 [node name="track" parent="." unique_id=396635011 instance=ExtResource("3_v2kud")]
 unique_name_in_owner = true
