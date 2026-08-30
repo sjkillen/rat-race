@@ -99,7 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 0.3901772, 0.92073977, 0, -0.92073977, 0.390
 shadow_enabled = true
 
 [node name="shark" parent="." unique_id=359580580 instance=ExtResource("3_gun43")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4742918, 42)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2375982, 42)
 
 [node name="XPillar" type="StaticBody3D" parent="." unique_id=1723567011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.759844, 0, 0)

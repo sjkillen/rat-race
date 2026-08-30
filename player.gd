@@ -1,9 +1,11 @@
 extends VehicleBody3D
 class_name Player
 
-const MAX_STEER = 0.8  # 45 degrees limit on turn
-const ENGINE_POWER = 300
-const AUTOSTART_FORCE = 65
+const MAX_STEER = 0.2  # 45 degrees limit on turn
+const ENGINE_POWER = 500
+const MIN_SPEED = 20
+const SPEED_CUSHION = 10
+const AUTOSTART_FORCE = MIN_SPEED + SPEED_CUSHION
 var up_to_speed = false  # When true, allows player to die when below threshold
 var waiting = true
 
@@ -21,36 +23,35 @@ func switch_camera():
 	%Camera3D.visible = true
 	%Camera3D.current = true
 
-func _process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
 	if waiting:
 		return
-	
-	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 2.5)
+
+	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * .5)
 	engine_force = Input.get_axis("ui_down", "ui_up") * ENGINE_POWER
 
 	var fwd_mps = roundi(linear_velocity.length())
-	
+
 	# Updates speedometer
 	speedometer.emit("Speed: %s KPH" % fwd_mps)
-	
+
 	# Automatically accelerate the player into a safe speed
-	# TODO: Figure out how to disable/re-enable inputs properly during the acceleration phase instead of killing the forces
-	if fwd_mps <= 60 and up_to_speed == false:
+	if fwd_mps <= (MIN_SPEED + SPEED_CUSHION) and up_to_speed == false:
 		# Disable the controls
-		engine_force = 0.0
+		#engine_force = 0.0
 		# Uncomment to get rid of steering
 		#steering = 0.0
 		speed_status.emit("Accelerating...")
-	
+
 	# Once up to speed, change the flag and allow player to accelerate at will
-	if fwd_mps >= 60 and up_to_speed == false:
+	if fwd_mps >= (MIN_SPEED + SPEED_CUSHION) and up_to_speed == false:
 		up_to_speed = true
 		speed_status.emit("Up to Speed!")
-	
+
 	# Destroys car if player falls below threshold speed.
-	if fwd_mps < 50 and up_to_speed == true:
-		destroy_car()
-	
+	#if fwd_mps < MIN_SPEED and up_to_speed == true:
+		#destroy_car()
+
 func destroy_car() -> void:
 	alive_status.emit(false)
 	linear_velocity = (Vector3.ZERO)
