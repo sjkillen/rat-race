@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://di8383vohsqd2"]
 
 [ext_resource type="PackedScene" uid="uid://xeqygkyhh3bd" path="res://shark/shark.glb" id="1_s8g2r"]
+[ext_resource type="Script" uid="uid://c3123gh8smrif" path="res://player.gd" id="2_lvqlo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvqlo"]
+size = Vector3(1.8379412, 2.3, 1.1)
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_s8g2r"]
 filter_enabled = true
@@ -53,30 +57,75 @@ nodes/FaceExpression/position = Vector2(-357.15796, 289.79498)
 node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Movement", &"Blend2", 1, &"FaceExpression"]
 
 [node name="shark" unique_id=359580580 instance=ExtResource("1_s8g2r")]
+gravity_scale = 4.0
+script = ExtResource("2_lvqlo")
 
-[node name="Skeleton3D" parent="SharkRig" parent_id_path=PackedInt32Array(966311254) index="0" unique_id=645232598]
-bones/1/rotation = Quaternion(-0.70702773, 0.010567669, 0.707028, 0.010567248)
-bones/2/rotation = Quaternion(0.021347065, -2.7811808e-08, 5.9375954e-10, 0.9997722)
-bones/3/rotation = Quaternion(-2.6506234e-07, 2.418182e-09, 0.00912269, 0.99995846)
-bones/4/rotation = Quaternion(-2.978841e-08, 2.7176042e-10, 0.009122692, 0.99995846)
-bones/5/rotation = Quaternion(0.8001746, 0.2573807, -0.23802614, 0.48664105)
-bones/6/rotation = Quaternion(0.7963325, -0.26903287, 0.24510393, 0.48311484)
-bones/7/rotation = Quaternion(0.051106423, 0.00032734795, -0.0063973404, 0.9986727)
+[node name="Skeleton3D" parent="SharkRig" parent_id_path=PackedInt32Array(539086937) index="0" unique_id=401213454]
+bones/1/rotation = Quaternion(-0.70579094, 0.043115366, 0.7057913, 0.043114934)
+bones/2/rotation = Quaternion(0.08693795, -2.77128e-08, 2.4183764e-09, 0.9962138)
+bones/3/rotation = Quaternion(-2.6494797e-07, -8.152654e-09, -0.030756218, 0.9995269)
+bones/4/rotation = Quaternion(-2.9775553e-08, -9.162195e-10, -0.030756209, 0.9995269)
+bones/5/rotation = Quaternion(0.79155564, 0.28277886, -0.25343102, 0.4787992)
+bones/6/rotation = Quaternion(0.80451053, -0.24348918, 0.22956556, 0.49068895)
+bones/7/rotation = Quaternion(0.05108997, 0.0013375373, -0.026137492, 0.9983511)
 bones/8/position = Vector3(6.270548e-05, 0.026770703, -0.42624998)
-bones/8/rotation = Quaternion(0.24449734, -0.00018760828, -0.0009517617, 0.96964955)
+bones/8/rotation = Quaternion(0.36890483, -6.183494e-05, -0.0009680988, 0.9294667)
 bones/13/rotation = Quaternion(0.9781652, 2.396619e-08, 3.4900015e-08, -0.20782895)
 bones/14/rotation = Quaternion(0.89064866, 4.6089017e-08, 4.4461327e-08, -0.45469224)
 
-[node name="SharkMesh" parent="SharkRig/Skeleton3D" index="0" unique_id=605929536]
-instance_shader_parameters/eye_white_tint = Color(0, 0, 0, 1)
-instance_shader_parameters/mouth_tint = Color(1, 0.70980394, 0.6627451, 1)
-instance_shader_parameters/skin_back_tint = Color(3.272891e-06, 0.7461772, 0.89419085, 1)
-instance_shader_parameters/skin_belly_tint = Color(1, 1, 1, 1)
-instance_shader_parameters/teeth_tint = Color(1, 1, 0.7607843, 1)
-instance_shader_parameters/tongue_tint = Color(1, 0.70980394, 0.6627451, 1)
-blend_shapes/MouthShut = 1.0
+[node name="SharkMesh" parent="SharkRig/Skeleton3D" index="0" unique_id=475595142]
+instance_shader_parameters/mouth_tint = Color(0.3830907, 0.15438208, 0.089492805, 1)
+instance_shader_parameters/skin_back_tint = Color(0.014701075, 0.108816676, 0.21410453, 1)
+instance_shader_parameters/skin_belly_tint = Color(0.8646751, 0.86467516, 0.8646751, 1)
+instance_shader_parameters/teeth_tint = Color(0.9427319, 0.91746724, 0.83362633, 1)
+instance_shader_parameters/tongue_tint = Color(0.9088795, 0.22838125, 0.35267562, 1)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1615903315]
+[node name="Camera3D" type="Camera3D" parent="." index="2" unique_id=2137975920]
+transform = Transform3D(-1, -1.5180806e-08, 8.609462e-08, 0, 0.9848077, 0.17364818, -8.742278e-08, 0.17364818, -0.9848077, 0, 3, -7)
+
+[node name="BackLeft" type="VehicleWheel3D" parent="." index="3" unique_id=1218075188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90599996, -0.47, -0.84999996)
+use_as_traction = true
+wheel_roll_influence = 0.01
+wheel_radius = 0.45
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.1
+suspension_travel = 0.15
+suspension_stiffness = 80.0
+
+[node name="BackRight" type="VehicleWheel3D" parent="." index="4" unique_id=1233947172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.909, -0.47, -0.84999996)
+use_as_traction = true
+wheel_roll_influence = 0.01
+wheel_radius = 0.45
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.1
+suspension_travel = 0.15
+suspension_stiffness = 80.0
+
+[node name="FrontRight" type="VehicleWheel3D" parent="." index="5" unique_id=1399776682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90599996, -0.47, 0.95)
+use_as_steering = true
+wheel_roll_influence = 0.01
+wheel_radius = 0.45
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.4
+suspension_stiffness = 120.0
+
+[node name="FrontLeft" type="VehicleWheel3D" parent="." index="6" unique_id=628567784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90599996, -0.47, 0.95000005)
+use_as_steering = true
+wheel_roll_influence = 0.01
+wheel_radius = 0.45
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.4
+suspension_stiffness = 120.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7" unique_id=537379687]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -0.025586903, 0.14651322)
+shape = SubResource("BoxShape3D_lvqlo")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="8" unique_id=1615903315]
 tree_root = SubResource("AnimationNodeBlendTree_wvapo")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Blend2/blend_amount = 1.0
