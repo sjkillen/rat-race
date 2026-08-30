@@ -1,7 +1,11 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://cyr2dcpvtwwu0"]
 
 [ext_resource type="Shader" uid="uid://g447o6h7006j" path="res://shark/shark_material.gdshader" id="1_gfhii"]
+[ext_resource type="Texture2D" uid="uid://dduf8ynk1unmw" path="res://shark/shark_shark_baked_normals.png" id="2_eh0bm"]
+[ext_resource type="Texture2D" uid="uid://4ege6ytxd82f" path="res://shark/shark_shark_baked_belly_mask.png" id="3_gvpe5"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_gfhii")
+shader_parameter/normals = ExtResource("2_eh0bm")
+shader_parameter/shark_mask = ExtResource("3_gvpe5")
