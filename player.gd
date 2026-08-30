@@ -5,7 +5,7 @@ const MAX_STEER = 0.8  # 45 degrees limit on turn
 const ENGINE_POWER = 300
 const AUTOSTART_FORCE = 65
 var up_to_speed = false  # When true, allows player to die when below threshold
-
+var waiting = true
 
 signal speedometer(msg: String)
 signal speed_status(msg: String)
@@ -14,10 +14,16 @@ signal alive_status(is_alive: bool)
 func _ready() -> void:
 	linear_velocity = global_basis * Vector3.MODEL_FRONT * AUTOSTART_FORCE
 	alive_status.emit(true)
-	%Camera3D.visible = is_multiplayer_authority()
-	%Camera3D.current = is_multiplayer_authority()
+	%Camera3D.visible = false
+	%Camera3D.current = false
 
-func _process(delta: float) -> void:
+func switch_camera():
+	%Camera3D.visible = true
+	%Camera3D.current = true
+
+func _process(delta: float) -> void:	
+	if waiting:
+		return
 	
 	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 2.5)
 	engine_force = Input.get_axis("ui_down", "ui_up") * ENGINE_POWER

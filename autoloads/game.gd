@@ -1,5 +1,11 @@
 extends Node
 
+var track: Track
+@warning_ignore("unused_signal")
+signal delete_track
+@warning_ignore("unused_signal")
+signal new_track
+
 func server() -> Server:
 	var room = serverclient()
 	if room == null or not room.multiplayer.is_server():

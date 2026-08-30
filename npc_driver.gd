@@ -13,6 +13,9 @@ enum Direction {
 	Lower,
 }
 
+func _ready() -> void:
+	%shark_model.close_mouth_anim()
+
 # https://kidscancode.org/godot_recipes/4.x/3d/3d_align_surface/index.html
 func align_with_yz(basis1: Basis, new_y: Vector3, new_z: Vector3):
 	var basis2 := Basis()
@@ -26,12 +29,18 @@ func align_with_yz(basis1: Basis, new_y: Vector3, new_z: Vector3):
 		return basis1
 
 func _physics_process(delta: float) -> void:
+	if not multiplayer.is_server():
+		return
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		move_and_slide()
+		if global_position.y < -50.0:
+			queue_free()
 		return
 	
 	var target: Vector3 = %NavigationAgent3D.get_next_path_position()
+	
 	var target_dir := target - global_position
 	target_dir.y = 0.0
 	target_dir = target_dir.normalized()

@@ -82,25 +82,35 @@ func npc_should_stop(who: NPCDriver) -> bool:
 	return cond
 
 func direct_npc(who: NPCDriver):
+	if not multiplayer.is_server():
+		return
 	if npc_should_stop(who):
 		who.stop_for(self)
 	else:
 		who.resume_for(self)
 
 func _physics_process(_delta: float) -> void:
+	if not multiplayer.is_server():
+		return
 	for body in get_overlapping_bodies():
 		if body is NPCDriver:
 			direct_npc(body)
 
 func _on_body_entered(body: Node3D) -> void:
+	if not multiplayer.is_server():
+		return
 	if body is NPCDriver:
 		direct_npc(body)
 
 func _on_granted_passage_body_entered(body: Node3D) -> void:
+	if not multiplayer.is_server():
+		return
 	if body is NPCDriver:
 		body.granted_passage = true
 
 func _on_body_exited(body: Node3D) -> void:
+	if not multiplayer.is_server():
+		return
 	if body is NPCDriver:
 		body.resume_for(self)
 		await get_tree().create_timer(grace_time).timeout

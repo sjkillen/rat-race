@@ -3,6 +3,7 @@ extends Node
 class_name ServerClient
 
 @export var port := 4547
+@onready var npc_driver_manager: NPCDriverManager = %NPCDriverManager
 
 signal player_joined(id: int, node: Player)
 signal local_player_joined(node: Player)
@@ -12,16 +13,15 @@ func _ready() -> void:
 	player_joined.connect(on_player_joined)
 
 @rpc("any_peer")
-func spawn_player() -> Player:
+func spawn_player():
 	if not multiplayer.is_server():
 		spawn_player.rpc_id(1)
-		return await local_player_joined
+		return
 	var source := multiplayer.get_remote_sender_id()
 	%PlayerSpawner.spawn(source)
-	return null
 
 func on_player_joined(id: int, node: Player):
-	if id == multiplayer.get_remote_sender_id():
+	if id == multiplayer.get_unique_id():
 		local_player_joined.emit(node)
 
 func on_player_spawn(player_id: int):

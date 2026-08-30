@@ -6,6 +6,11 @@ class_name Track
 # Points in global space on the track in main_mesh that mark waypoints
 @onready var waypoints: Array[WaypointData] = create_waypoints()
 
+func _ready() -> void:
+	Game.track = self
+	Game.delete_track.emit.call_deferred()
+	Game.new_track.emit.call_deferred()
+
 # Chooses num_waypoints based on how upward their normal is and how close they
 # are to an even division of num_waypoints
 # NOTE: the Blender export saves the track curve factor in 'UV.x'

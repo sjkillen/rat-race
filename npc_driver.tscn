@@ -1,29 +1,44 @@
 [gd_scene format=3 uid="uid://das452eiw28iu"]
 
 [ext_resource type="Script" uid="uid://l0quuu45p6os" path="res://npc_driver.gd" id="1_catet"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_4sc8i"]
+[ext_resource type="PackedScene" uid="uid://ysy0xcka1m88" path="res://shark/shark_model.tscn" id="2_whp50"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_10lyi"]
 points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldef4"]
-resource_local_to_scene = true
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_4sc8i"]
-radius = 0.1
-height = 0.2
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_4sc8i"]
 radius = 3.1260054
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_whp50"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="NpcDriver" type="CharacterBody3D" unique_id=501749123]
 script = ExtResource("1_catet")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1616738224]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0)
-mesh = SubResource("PrismMesh_4sc8i")
+[node name="shark_model" parent="." unique_id=794544193 instance=ExtResource("2_whp50")]
+unique_name_in_owner = true
+transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0, 0.31869435, 0)
+
+[node name="Skeleton3D" parent="shark_model/SharkRig" parent_id_path=PackedInt32Array(794544193, 1411268596) index="0" unique_id=1894594994]
+bones/1/rotation = Quaternion(-0.7058016, -0.04294197, 0.7058017, -0.04294237)
+bones/2/rotation = Quaternion(-0.086589105, -2.7713662e-08, -2.4088258e-09, 0.9962442)
+bones/3/rotation = Quaternion(-2.6474996e-07, 1.3089085e-08, 0.049379107, 0.99878013)
+bones/4/rotation = Quaternion(-2.9753306e-08, 1.4709848e-09, 0.049379103, 0.99878013)
+bones/5/rotation = Quaternion(0.80796766, 0.23175934, -0.22240263, 0.49397665)
+bones/6/rotation = Quaternion(0.78735787, -0.29426464, 0.26036987, 0.47506157)
+bones/7/rotation = Quaternion(0.051090114, -0.0013322053, 0.026032066, 0.9983539)
+
+[node name="SharkMesh" parent="shark_model/SharkRig/Skeleton3D" index="0" unique_id=1158084763]
+instance_shader_parameters/eye_white_tint = Color(1, 1, 1, 1)
+instance_shader_parameters/skin_back_tint = Color(0, 0, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1975039407]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0)
@@ -32,16 +47,17 @@ shape = SubResource("ConvexPolygonShape3D_10lyi")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=143578423]
 unique_name_in_owner = true
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=220552204]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0094625, 0.5056112)
-material_override = SubResource("StandardMaterial3D_ldef4")
-mesh = SubResource("SphereMesh_4sc8i")
-
 [node name="StopField" type="Area3D" parent="." unique_id=1225410982]
 unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StopField" unique_id=576667283]
 shape = SubResource("SphereShape3D_4sc8i")
 
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1327131572]
+replication_config = SubResource("SceneReplicationConfig_whp50")
+
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
 [connection signal="body_entered" from="StopField" to="." method="_on_stop_field_body_entered"]
 [connection signal="body_exited" from="StopField" to="." method="_on_stop_field_body_exited"]
+
+[editable path="shark_model"]

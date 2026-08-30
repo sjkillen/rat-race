@@ -8,6 +8,7 @@ var is_online: bool = false
 signal online
 signal offline
 signal connection_error(msg: String)
+@onready var start_pos_picker: StartPosPicker = %StartPosPicker
 
 func _ready() -> void:
 	super()

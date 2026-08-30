@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://lvtxowacwmjt"]
 
+[ext_resource type="Script" uid="uid://wg8ypdwlk3tv" path="res://multiplayer/npc_driver_manager.gd" id="1_xf53j"]
+
 [node name="ServerClientShared" type="Node3D" unique_id=689357464]
 
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1218294843]
@@ -7,4 +9,15 @@ unique_name_in_owner = true
 spawn_path = NodePath("../Players")
 
 [node name="Players" type="Node3D" parent="." unique_id=983614788]
+unique_name_in_owner = true
+
+[node name="NPCDriverManager" type="Node3D" parent="." unique_id=1842884684]
+unique_name_in_owner = true
+script = ExtResource("1_xf53j")
+
+[node name="NPCDriverSpawner" type="MultiplayerSpawner" parent="NPCDriverManager" unique_id=746508903]
+unique_name_in_owner = true
+spawn_path = NodePath("../NPCDrivers")
+
+[node name="NPCDrivers" type="Node3D" parent="NPCDriverManager" unique_id=1041600651]
 unique_name_in_owner = true

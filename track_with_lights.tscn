@@ -94,6 +94,10 @@ track = NodePath("../track")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection3/GrantedPassage" parent_id_path=PackedInt32Array(1913216878, 1746356572) index="0" unique_id=1665925549]
 shape = SubResource("SphereShape3D_r7jd2")
 
+[node name="Camera3D" type="Camera3D" parent="TrafficLightIntersection3/GrantedPassage/CollisionShape3D" unique_id=1960144129]
+transform = Transform3D(0.90627563, -0.37030515, 0.20381004, 0.056178834, 0.58342415, 0.8102223, -0.41893718, -0.72283494, 0.5495464, 16.614197, 21.268692, 56.614624)
+fov = 126.5
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection3" unique_id=724618609]
 shape = SubResource("SphereShape3D_4sc8i")
 
