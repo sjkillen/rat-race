@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://rnhvkyg7sb5k"]
 
+[ext_resource type="PackedScene" uid="uid://cp2d83gjur8ro" path="res://player_debug_ui.tscn" id="2_lyxng"]
 [ext_resource type="PackedScene" uid="uid://di8383vohsqd2" path="res://shark/shark.tscn" id="3_gun43"]
 [ext_resource type="Shader" uid="uid://0shuka7rgml4" path="res://bubbles.tres" id="3_lyxng"]
 
@@ -26,12 +27,6 @@ height = 40.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62yky"]
 albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="SystemFont" id="SystemFont_mm1bc"]
-
-[sub_resource type="Theme" id="Theme_4kxuq"]
-default_font = SubResource("SystemFont_mm1bc")
-default_font_size = 22
 
 [sub_resource type="Curve" id="Curve_ux50o"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.19101131), 0.0, 0.0, 0, 0]
@@ -126,57 +121,8 @@ shape = SubResource("CylinderShape3D_mti6b")
 mesh = SubResource("CylinderMesh_mm1bc")
 surface_material_override/0 = SubResource("StandardMaterial3D_62yky")
 
-[node name="UI" type="Control" parent="." unique_id=1693195529]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_4kxuq")
-
-[node name="Speedometer" type="Label" parent="UI" unique_id=2001617867]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 157.0
-offset_bottom = 73.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Speed: 0 KMH"
-
-[node name="SpeedStatus" type="Label" parent="UI" unique_id=569671141]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 80.0
-offset_right = 187.0
-offset_bottom = 111.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Accelerating!"
-
-[node name="Retry" type="ColorRect" parent="UI" unique_id=1675400397]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.39215687)
-
-[node name="Label" type="Label" parent="UI/Retry" unique_id=244288400]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -15.5
-offset_right = 20.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "TOO SLOW!
-Press [Enter] to Retry"
+[node name="UI" parent="." unique_id=1468672237 node_paths=PackedStringArray("player") instance=ExtResource("2_lyxng")]
+player = NodePath("../shark")
 
 [node name="DeathRattle" type="GPUParticles3D" parent="." unique_id=1531589323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1.8426409)
