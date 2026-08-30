@@ -125,7 +125,7 @@ script = SubResource("GDScript_txny5")
 transform = Transform3D(0.005628753, 0.69654024, -0.71749574, -0.0010125996, 0.71751076, 0.69654685, 0.99998367, -0.0031941545, 0.0047440063, -117.102745, 91.81867, -25.694727)
 
 [node name="TrafficLightIntersection" parent="." unique_id=811908910 node_paths=PackedStringArray("track") instance=ExtResource("3_r7jd2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.74487, -1.8078918, -17.771605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.74487, 0.46974564, -17.771605)
 track = NodePath("../track")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection/GrantedPassage" parent_id_path=PackedInt32Array(811908910, 1746356572) index="0" unique_id=1816973023]
@@ -149,7 +149,7 @@ transform = Transform3D(0.63125944, 0, -0.77557176, 0, 1, 0, 0.77557176, 0, 0.63
 on_state = 1
 
 [node name="TrafficLightIntersection2" parent="." unique_id=45426616 node_paths=PackedStringArray("track") instance=ExtResource("3_r7jd2")]
-transform = Transform3D(0.7597829, 0, 0.6501769, 0, 1, 0, -0.6501769, 0, 0.7597829, -48.79904, -0.25620294, -49.288235)
+transform = Transform3D(0.7597829, 0, 0.6501769, 0, 1, 0, -0.6501769, 0, 0.7597829, -48.79904, 0.44511747, -49.288235)
 track = NodePath("../track")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection2/GrantedPassage" parent_id_path=PackedInt32Array(45426616, 1746356572) index="0" unique_id=230124990]
@@ -197,7 +197,7 @@ transform = Transform3D(0.63125944, 0, -0.77557176, 0, 1, 0, 0.77557176, 0, 0.63
 on_state = 1
 
 [node name="TrafficLightIntersection3" parent="." unique_id=74828831 node_paths=PackedStringArray("track") instance=ExtResource("3_r7jd2")]
-transform = Transform3D(0.06917146, 0, 0.9976048, 0, 1, 0, -0.9976048, 0, 0.06917146, -37.661648, -0.27397847, -71.34322)
+transform = Transform3D(0.06917146, 0, 0.9976048, 0, 1, 0, -0.9976048, 0, 0.06917146, -37.661648, 0.59098935, -71.34322)
 track = NodePath("../track")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection3/GrantedPassage" parent_id_path=PackedInt32Array(74828831, 1746356572) index="0" unique_id=1132745662]
