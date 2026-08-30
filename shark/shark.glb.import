@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/shark.glb-754001d106d5af3b09b3ab68fd2c4ca6.sc
 
 [params]
 
-nodes/root_type="VehicleBody3D"
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
@@ -2103,6 +2103,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://shark/shark_material.tres",
 "use_external/path": "uid://cyr2dcpvtwwu0"
+}
+},
+"nodes": {
+"PATH:SharkRig": {
+"node/node_type": "Node3D"
 }
 }
 }
