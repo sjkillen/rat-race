@@ -29,6 +29,9 @@ func _ready() -> void:
 # Find two waypoints within waypoint_epsilon distance
 # then compute their average factor
 func compute_factor_midpoint() -> float:
+	if not track.is_node_ready():
+		push_error("Track is not ready yet")
+		return 0.0
 	var low_waypoint: WaypointData = null
 	var high_waypoint: WaypointData = null
 	for waypoint in track.waypoints:

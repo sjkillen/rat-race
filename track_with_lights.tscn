@@ -12,6 +12,9 @@ radius = 6.7005253
 
 [node name="TrackWithLights" type="Node3D" unique_id=307923840]
 
+[node name="track" parent="." unique_id=396635011 instance=ExtResource("3_v2kud")]
+unique_name_in_owner = true
+
 [node name="TrafficLightIntersection" parent="." unique_id=811908910 node_paths=PackedStringArray("track") instance=ExtResource("1_i1ebg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.74487, -1.8078918, -17.771605)
 track = NodePath("../track")
@@ -108,9 +111,6 @@ on_state = 1
 transform = Transform3D(0.88421607, 0, -0.46707827, 0, 1, 0, 0.46707827, 0, 0.88421607, 2.3042297, -0.12828958, 0.31288147)
 on_state = 1
 
-[node name="track" parent="." unique_id=396635011 instance=ExtResource("3_v2kud")]
-unique_name_in_owner = true
-
 [connection signal="body_exited" from="TrafficLightIntersection" to="TrafficLightIntersection" method="_on_body_exited"]
 [connection signal="body_entered" from="TrafficLightIntersection/GrantedPassage" to="TrafficLightIntersection" method="_on_granted_passage_body_entered"]
 [connection signal="body_exited" from="TrafficLightIntersection2" to="TrafficLightIntersection2" method="_on_body_exited"]
@@ -120,8 +120,8 @@ unique_name_in_owner = true
 [connection signal="body_exited" from="TrafficLightIntersection3" to="TrafficLightIntersection3" method="_on_body_exited"]
 [connection signal="body_entered" from="TrafficLightIntersection3/GrantedPassage" to="TrafficLightIntersection3" method="_on_granted_passage_body_entered"]
 
+[editable path="track"]
 [editable path="TrafficLightIntersection"]
 [editable path="TrafficLightIntersection2"]
 [editable path="TrafficLightIntersection4"]
 [editable path="TrafficLightIntersection3"]
-[editable path="track"]
