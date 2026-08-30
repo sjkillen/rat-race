@@ -53,6 +53,29 @@ node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Movement", &"Blend2
 
 [node name="shark" unique_id=794544193 instance=ExtResource("1_xhb30")]
 
+[node name="Skeleton3D" parent="SharkRig" parent_id_path=PackedInt32Array(1411268596) index="0" unique_id=1894594994]
+bones/1/rotation = Quaternion(-0.7061013, 0.03769347, 0.70610154, 0.03769303)
+bones/2/rotation = Quaternion(0.07603957, -2.7737608e-08, 2.1152053e-09, 0.9971048)
+bones/3/rotation = Quaternion(-2.647729e-07, -1.2616768e-08, -0.047597278, 0.9988667)
+bones/4/rotation = Quaternion(-2.9755885e-08, -1.4179057e-09, -0.047597274, 0.9988667)
+bones/5/rotation = Quaternion(0.7876687, 0.2934316, -0.25986716, 0.47533664)
+bones/6/rotation = Quaternion(0.8077222, -0.23261379, 0.22292505, 0.49374115)
+bones/7/rotation = Quaternion(0.05109411, 0.0011689176, -0.022842508, 0.9984319)
+bones/8/position = Vector3(6.270548e-05, 0.026770703, -0.42624998)
+bones/8/rotation = Quaternion(0.36890483, -6.183494e-05, -0.0009680988, 0.9294667)
+bones/13/rotation = Quaternion(0.9781652, 2.396619e-08, 3.4900015e-08, -0.20782895)
+bones/14/rotation = Quaternion(0.89064866, 4.6089017e-08, 4.4461327e-08, -0.45469224)
+
+[node name="SharkMesh" parent="SharkRig/Skeleton3D" index="0" unique_id=1158084763]
+instance_shader_parameters/eye_pupil_tint = Color(1, 1, 1, 1)
+instance_shader_parameters/eye_white_tint = Color(0, 0, 0, 1)
+instance_shader_parameters/mouth_tint = Color(1, 1, 1, 1)
+instance_shader_parameters/skin_back_tint = Color(0.88223225, 0.314617, 0.120482706, 1)
+instance_shader_parameters/skin_belly_tint = Color(0.90359825, 0.90359825, 0.9035982, 1)
+instance_shader_parameters/teeth_tint = Color(0.64841896, 0.43189463, 0, 1)
+instance_shader_parameters/tongue_tint = Color(1, 0, 0, 1)
+
 [node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1396559650]
 tree_root = SubResource("AnimationNodeBlendTree_wg4v4")
+anim_player = NodePath("../AnimationPlayer")
 parameters/Blend2/blend_amount = 1.0
