@@ -7,7 +7,6 @@ const MIN_SPEED = 20
 const SPEED_CUSHION = 10
 const AUTOSTART_FORCE = MIN_SPEED + SPEED_CUSHION
 var up_to_speed = false  # When true, allows player to die when below threshold
-var waiting = true
 
 signal speedometer(msg: String)
 signal speed_status(msg: String)
@@ -18,15 +17,13 @@ func _ready() -> void:
 	alive_status.emit(true)
 	%Camera3D.visible = false
 	%Camera3D.current = false
+	freeze = true
 
 func switch_camera():
 	%Camera3D.visible = true
 	%Camera3D.current = true
 
 func _physics_process(delta: float) -> void:
-	if waiting:
-		return
-
 	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * .5)
 	engine_force = Input.get_axis("ui_down", "ui_up") * ENGINE_POWER
 

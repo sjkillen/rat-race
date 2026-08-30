@@ -11,6 +11,23 @@ func _ready() -> void:
 	Game.delete_track.emit.call_deferred()
 	Game.new_track.emit.call_deferred()
 
+func nearest_waypoint(pos: Vector3) -> WaypointData:
+	var min_dist = INF
+	var nearest := waypoints[0]
+	for p in waypoints:
+		var dist := pos.distance_to(p.position)
+		if dist < min_dist:
+			nearest = p
+			min_dist = dist
+	return nearest
+
+func track_direction(pos: Vector3) -> Vector3:
+	var wp := nearest_waypoint(pos)
+	var next_wp := waypoints[(wp.index + 1) % waypoints.size()]
+	var delta := next_wp.position - wp.position
+	delta.y = 0.0
+	return delta
+	
 # Chooses num_waypoints based on how upward their normal is and how close they
 # are to an even division of num_waypoints
 # NOTE: the Blender export saves the track curve factor in 'UV.x'

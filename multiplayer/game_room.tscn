@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dk7dfeun4sy26" path="res://multiplayer/game_room.gd" id="1_28ex8"]
 [ext_resource type="PackedScene" uid="uid://vxmb7eibvqjd" path="res://track_with_lights.tscn" id="1_rcpc7"]
+[ext_resource type="Script" uid="uid://c705476i3uaf2" path="res://multiplayer/waiting.gd" id="3_3t31d"]
+[ext_resource type="PackedScene" uid="uid://b2v578n608ke2" path="res://waiting_camera.tscn" id="3_8tusq"]
 
 [sub_resource type="Environment" id="Environment_5nnk1"]
 
@@ -15,3 +17,46 @@ environment = SubResource("Environment_5nnk1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=156673594]
 transform = Transform3D(1, 0, 0, 0, 0.6083521, 0.79366726, 0, -0.79366726, 0.6083521, 0, 0, 0)
+
+[node name="Waiting" type="CanvasLayer" parent="." unique_id=96973427]
+unique_name_in_owner = true
+script = ExtResource("3_3t31d")
+
+[node name="Control" type="Control" parent="Waiting" unique_id=103381817]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Waiting/Control" unique_id=633398109]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -178.5
+offset_top = 37.225
+offset_right = 178.5
+offset_bottom = 119.225
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "Get Ready!"
+
+[node name="Label2" type="Label" parent="Waiting/Control" unique_id=1596410427]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -505.0
+offset_top = -82.0
+offset_right = 505.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Click a spot on the track to start there"
+
+[node name="WaitingCamera" parent="Waiting" unique_id=428438663 instance=ExtResource("3_8tusq")]
+unique_name_in_owner = true

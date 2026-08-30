@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2v578n608ke2"]
+
+[ext_resource type="Script" uid="uid://dsec1l10ck7kk" path="res://waiting_camera.gd" id="1_42roa"]
+
+[node name="WaitingCamera" type="Node3D" unique_id=428438663]
+script = ExtResource("1_42roa")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=305110019]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.5212764, 0.8533879, 0, -0.8533879, 0.5212764, 0, 10.237169, 9.623583)
+fov = 126.5
