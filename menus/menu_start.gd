@@ -1,6 +1,6 @@
 extends Control
 
-func _ready() -> void:
+func _ready() -> void:		
 	if OS.has_feature("server_only"):
 		print("Starting server...")
 		get_tree().change_scene_to_file.call_deferred("res://multiplayer/CreateServer.tscn")

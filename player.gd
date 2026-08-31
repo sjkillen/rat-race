@@ -5,7 +5,7 @@ const MAX_STEER = 0.2  # 45 degrees limit on turn
 const ENGINE_POWER = 500
 const MIN_SPEED = 5
 const SPEED_CUSHION = 10
-const AUTOSTART_FORCE = 20
+const AUTOSTART_FORCE = 30
 var didRattle = false
 var up_to_speed = false  # When true, allows player to die when below threshold
 
@@ -27,6 +27,8 @@ func start_wait():
 func start_race():
 	switch_camera()
 	freeze = false
+	linear_velocity = global_basis * Vector3.MODEL_FRONT * AUTOSTART_FORCE
+
 
 func switch_camera():
 	%Camera3D.visible = true
