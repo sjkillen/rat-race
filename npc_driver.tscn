@@ -28,13 +28,13 @@ unique_name_in_owner = true
 transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0, 0.31869435, 0)
 
 [node name="Skeleton3D" parent="shark_model/SharkRig" parent_id_path=PackedInt32Array(794544193, 1411268596) index="0" unique_id=1894594994]
-bones/1/rotation = Quaternion(-0.7058016, -0.04294197, 0.7058017, -0.04294237)
-bones/2/rotation = Quaternion(-0.086589105, -2.7713662e-08, -2.4088258e-09, 0.9962442)
-bones/3/rotation = Quaternion(-2.6474996e-07, 1.3089085e-08, 0.049379107, 0.99878013)
-bones/4/rotation = Quaternion(-2.9753306e-08, 1.4709848e-09, 0.049379103, 0.99878013)
-bones/5/rotation = Quaternion(0.80796766, 0.23175934, -0.22240263, 0.49397665)
-bones/6/rotation = Quaternion(0.78735787, -0.29426464, 0.26036987, 0.47506157)
-bones/7/rotation = Quaternion(0.051090114, -0.0013322053, 0.026032066, 0.9983539)
+bones/1/rotation = Quaternion(-0.7054307, 0.04865622, 0.7054309, 0.04865579)
+bones/2/rotation = Quaternion(0.09926972, -2.768075e-08, 2.7614193e-09, 0.99506056)
+bones/3/rotation = Quaternion(-2.6478978e-07, -1.2257895e-08, -0.046243407, 0.9989302)
+bones/4/rotation = Quaternion(-2.975778e-08, -1.3775769e-09, -0.046243407, 0.9989302)
+bones/5/rotation = Quaternion(0.7879867, 0.2925767, -0.25935122, 0.47561836)
+bones/6/rotation = Quaternion(0.8074691, -0.23349012, 0.22346073, 0.49349898)
+bones/7/rotation = Quaternion(0.05108556, 0.0014964392, -0.029242603, 0.998265)
 
 [node name="SharkMesh" parent="shark_model/SharkRig/Skeleton3D" index="0" unique_id=1158084763]
 instance_shader_parameters/eye_white_tint = Color(1, 1, 1, 1)

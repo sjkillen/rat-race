@@ -70,6 +70,8 @@ func is_stopped() -> bool:
 	return stopped_reasons.size() > 0
 
 func stop_for(why):
+	if why is NPCDriver:
+		return
 	if stopped_reasons.has(why):
 		return
 	if why is NPCDriver and why.direction != direction:
