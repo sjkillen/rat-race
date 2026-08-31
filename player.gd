@@ -19,6 +19,10 @@ func _ready() -> void:
 	%Camera3D.current = false
 	freeze = true
 
+func start_race():
+	switch_camera()
+	freeze = false
+
 func switch_camera():
 	%Camera3D.visible = true
 	%Camera3D.current = true

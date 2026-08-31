@@ -15,6 +15,12 @@ func init_client(client: Client):
 	client.start_pos_picker.click_track.connect(pick_spawn)
 	client.spawn_player()
 	%Waiting.enable_waiting()
+	client.waiting_timer_tick.connect(%Waiting.update_timer)
+	client.game_state_change.connect(client_gamestatechange.bind(client))
+	
+func client_gamestatechange(client: Client):
+	if client.game_state == ServerClient.GameState.RACING:
+		player.start_race()
 
 func set_player(p: Player):
 	player = p

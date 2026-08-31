@@ -22,7 +22,11 @@ func create_server():
 
 func on_peer_online(who: int):
 	print("Peer connected: ", who)
+	on_player_connect.rpc(who)
 		
 func on_peer_offline(who: int):
 	print("Peer disconnected: ", who)
+	var player: Player = %Players.get_node_or_null(str(who))
+	%Players.remove_child(player)
+	on_player_disconnect.rpc(who)
 	

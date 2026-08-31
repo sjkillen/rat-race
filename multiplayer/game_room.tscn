@@ -43,7 +43,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 72
 text = "Get Ready!"
 
-[node name="Label2" type="Label" parent="Waiting/Control" unique_id=1596410427]
+[node name="VBoxContainer" type="VBoxContainer" parent="Waiting/Control" unique_id=1280959136]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -51,12 +51,22 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -505.0
-offset_top = -82.0
+offset_top = -153.06
 offset_right = 505.0
+offset_bottom = -35.059814
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Label2" type="Label" parent="Waiting/Control/VBoxContainer" unique_id=1596410427]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Click a spot on the track to start there"
+
+[node name="TimerLabel" type="Label" parent="Waiting/Control/VBoxContainer" unique_id=1648160982]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
 
 [node name="WaitingCamera" parent="Waiting" unique_id=428438663 instance=ExtResource("3_8tusq")]
 unique_name_in_owner = true

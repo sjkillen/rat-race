@@ -12,6 +12,7 @@ signal connection_error(msg: String)
 
 func _ready() -> void:
 	super()
+	%WaitingTimer.start(WAITING_TIME)
 	join_server()
 
 func join_server():

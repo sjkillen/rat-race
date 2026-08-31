@@ -21,3 +21,7 @@ spawn_path = NodePath("../NPCDrivers")
 
 [node name="NPCDrivers" type="Node3D" parent="NPCDriverManager" unique_id=1041600651]
 unique_name_in_owner = true
+
+[node name="WaitingTimer" type="Timer" parent="." unique_id=731385023]
+unique_name_in_owner = true
+one_shot = true
