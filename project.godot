@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rat Race"
-run/main_scene="uid://rnhvkyg7sb5k"
+run/main_scene="uid://dawmj10rhmnwk"
 config/features=PackedStringArray("4.7")
 
 [autoload]
