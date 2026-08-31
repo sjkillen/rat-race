@@ -103,6 +103,7 @@ func on_player_joined(id: int, node: Player):
 func on_player_spawn(player_id: int):
 	var node: Player = preload("res://shark/shark.tscn").instantiate()
 	node.name = str(player_id)
+	node.start_wait()
 	node.set_multiplayer_authority(player_id, true)
 	node.connect("tree_entered", player_joined.emit.bind(player_id, node), CONNECT_ONE_SHOT)
 	return node

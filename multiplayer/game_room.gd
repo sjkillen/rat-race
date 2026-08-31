@@ -20,6 +20,7 @@ func init_client(client: Client):
 	
 func client_gamestatechange(client: Client):
 	if client.game_state == ServerClient.GameState.RACING:
+		%Waiting.disable_waiting()
 		player.start_race()
 
 func set_player(p: Player):

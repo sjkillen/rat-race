@@ -15,10 +15,14 @@ signal alive_status(is_alive: bool)
 func _ready() -> void:
 	linear_velocity = global_basis * Vector3.MODEL_FRONT * AUTOSTART_FORCE
 	alive_status.emit(true)
+
+@rpc("any_peer", "call_local")
+func start_wait():
 	%Camera3D.visible = false
 	%Camera3D.current = false
 	freeze = true
 
+@rpc("any_peer", "call_local")
 func start_race():
 	switch_camera()
 	freeze = false
@@ -30,6 +34,7 @@ func switch_camera():
 func _physics_process(delta: float) -> void:
 	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * .5)
 	engine_force = Input.get_axis("ui_down", "ui_up") * ENGINE_POWER
+	print(engine_force)
 
 	var fwd_mps = roundi(linear_velocity.length())
 
