@@ -2,21 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dk7dfeun4sy26" path="res://multiplayer/game_room.gd" id="1_28ex8"]
 [ext_resource type="PackedScene" uid="uid://vxmb7eibvqjd" path="res://track_with_lights.tscn" id="1_rcpc7"]
+[ext_resource type="PackedScene" uid="uid://ch77c0w0l6epi" path="res://multiplayer/world_environment.tscn" id="3_0jksg"]
 [ext_resource type="Script" uid="uid://c705476i3uaf2" path="res://multiplayer/waiting.gd" id="3_3t31d"]
 [ext_resource type="PackedScene" uid="uid://b2v578n608ke2" path="res://waiting_camera.tscn" id="3_8tusq"]
-
-[sub_resource type="Environment" id="Environment_5nnk1"]
 
 [node name="GameRoom" type="Node3D" unique_id=2076541178]
 script = ExtResource("1_28ex8")
 
 [node name="TrackWithLights" parent="." unique_id=307923840 instance=ExtResource("1_rcpc7")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=323642603]
-environment = SubResource("Environment_5nnk1")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=156673594]
-transform = Transform3D(1, 0, 0, 0, 0.6083521, 0.79366726, 0, -0.79366726, 0.6083521, 0, 0, 0)
+[node name="WorldEnvironment" parent="." unique_id=409520120 instance=ExtResource("3_0jksg")]
 
 [node name="Waiting" type="CanvasLayer" parent="." unique_id=96973427]
 unique_name_in_owner = true

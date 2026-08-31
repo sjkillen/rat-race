@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ch77c0w0l6epi"]
+
+[sub_resource type="Environment" id="Environment_5nnk1"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=409520120]
+environment = SubResource("Environment_5nnk1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=761621237]
+transform = Transform3D(1, 0, 0, 0, 0.6083521, 0.79366726, 0, -0.79366726, 0.6083521, 0, 0, 0)

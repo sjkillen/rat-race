@@ -17,7 +17,8 @@ func _ready() -> void:
 	alive_status.emit(true)
 	%Camera3D.visible = false
 	%Camera3D.current = false
-	freeze = true
+	# set to true later
+	freeze = false
 
 func start_race():
 	switch_camera()
@@ -50,8 +51,8 @@ func _physics_process(delta: float) -> void:
 		speed_status.emit("Up to Speed!")
 
 	# Destroys car if player falls below threshold speed.
-	if fwd_mps < MIN_SPEED and up_to_speed == true:
-		destroy_car()
+	#if fwd_mps < MIN_SPEED and up_to_speed == true:
+		#destroy_car()
 
 func destroy_car() -> void:
 	alive_status.emit(false)
