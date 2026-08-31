@@ -14,3 +14,6 @@ navigation_mesh = SubResource("NavigationMesh_4sc8i")
 script = ExtResource("2_phvr8")
 num_waypoints = 100
 main_mesh = NodePath("TrackConstruct")
+
+[node name="TrackConstruct" parent="." index="0" unique_id=435079928]
+layers = 57

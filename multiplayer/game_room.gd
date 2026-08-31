@@ -20,6 +20,7 @@ func init_client(client: Client):
 	
 func client_gamestatechange(client: Client):
 	if client.game_state == ServerClient.GameState.RACING:
+		%Waiting.disable_waiting()
 		player.start_race()
 
 func set_player(p: Player):
@@ -28,6 +29,7 @@ func set_player(p: Player):
 func pick_spawn(pos: Vector3):
 	if player != null:
 		pos.y += 1.5
+		print(pos)
 		player.global_position = pos
 		var dir := -Game.track.track_direction(pos)
 		player.global_basis = Basis.looking_at(dir)

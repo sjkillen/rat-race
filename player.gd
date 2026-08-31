@@ -16,11 +16,14 @@ signal alive_status(is_alive: bool)
 func _ready() -> void:
 	linear_velocity = global_basis * Vector3.MODEL_FRONT * AUTOSTART_FORCE
 	alive_status.emit(true)
+
+@rpc("any_peer", "call_local")
+func start_wait():
 	%Camera3D.visible = false
 	%Camera3D.current = false
-	# set to true later
-	freeze = false
+	freeze = true
 
+@rpc("any_peer", "call_local")
 func start_race():
 	switch_camera()
 	freeze = false
