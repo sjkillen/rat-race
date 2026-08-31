@@ -3,6 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://dtdg1mcav38fx" path="res://TrafficLightIntersection.tscn" id="1_i1ebg"]
 [ext_resource type="PackedScene" uid="uid://cc3phii3vqdxo" path="res://TrafficLight.tscn" id="2_vhnp7"]
 [ext_resource type="PackedScene" uid="uid://jk2prr2ucedt" path="res://track.tscn" id="3_v2kud"]
+[ext_resource type="PackedScene" uid="uid://7ygqtx50y88e" path="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/gltf/crashed_ship.glb" id="4_h3j75"]
+[ext_resource type="PackedScene" uid="uid://dsjwilehwu8ii" path="res://3DbackgroundItems/coral.glb" id="4_jp6y1"]
+[ext_resource type="PackedScene" uid="uid://csk4isl7xdmhe" path="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/gltf/chest_old.glb" id="5_iaoep"]
+[ext_resource type="PackedScene" uid="uid://lmgky4p80c42" path="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/gltf/anemonie.glb" id="7_u2msv"]
+[ext_resource type="PackedScene" uid="uid://byy23yke2dd37" path="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/gltf/small_coral.glb" id="8_ursl2"]
+[ext_resource type="PackedScene" uid="uid://cyppvdmrfxktg" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral1.fbx" id="9_12t7c"]
+[ext_resource type="PackedScene" uid="uid://woipksvaqesu" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral2.fbx" id="10_5wxou"]
+[ext_resource type="PackedScene" uid="uid://cwh6a66nw53el" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral3.fbx" id="11_mouyr"]
+[ext_resource type="PackedScene" uid="uid://bqyjq6716idf3" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral4.fbx" id="12_ijln6"]
+[ext_resource type="PackedScene" uid="uid://c4bmtj43wiwgj" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral5.fbx" id="13_17tmq"]
+[ext_resource type="PackedScene" uid="uid://br5knhenkbl8a" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral6.fbx" id="14_pumpp"]
+[ext_resource type="PackedScene" uid="uid://ba5mwcjgdsaw4" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral.fbx" id="15_0bvb2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r7jd2"]
 radius = 10.3079
@@ -193,6 +205,65 @@ mesh = SubResource("BoxMesh_4kxuq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundPlane" unique_id=1663845543]
 shape = SubResource("BoxShape3D_h3j75")
+
+[node name="SetDressing" type="Node3D" parent="." unique_id=1231004441]
+
+[node name="chest_old" parent="SetDressing" unique_id=844004282 instance=ExtResource("5_iaoep")]
+transform = Transform3D(9.211854, 0, -3.8912394, 0, 10, 0, 3.8912394, 0, 9.211854, 29.643517, 3.70537, -20.991684)
+
+[node name="crashed_ship2" parent="SetDressing" unique_id=1889778110 instance=ExtResource("4_h3j75")]
+transform = Transform3D(-25.918392, 0, -15.10751, 0, 30, 0, 15.10751, 0, -25.918392, 19.83052, -20, 72.60149)
+
+[node name="anemonie2" parent="SetDressing" unique_id=1348002681 instance=ExtResource("7_u2msv")]
+transform = Transform3D(23.029634, 0, -9.728099, 0, 25, 0, 9.728099, 0, 23.029634, 89.329506, 0.7488407, -76.4971)
+
+[node name="anemonie3" parent="SetDressing" unique_id=494052898 instance=ExtResource("7_u2msv")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -54.174103, 0.7488407, -129.1283)
+
+[node name="FireCoral1" parent="SetDressing" unique_id=1271138133 instance=ExtResource("4_jp6y1")]
+transform = Transform3D(-0.2443218, 0, 9.997015, 0, 10, 0, -9.997015, 0, -0.2443218, 142.26793, 0.6221299, 4.5171432)
+
+[node name="FireCoral2" parent="SetDressing" unique_id=58012691 instance=ExtResource("4_jp6y1")]
+transform = Transform3D(2.5881908, 0, -9.659258, 0, 10, 0, 9.659258, 0, 2.5881908, 33.16288, 0.62213755, -133.49013)
+
+[node name="FireCoral3" parent="SetDressing" unique_id=478576864 instance=ExtResource("4_jp6y1")]
+transform = Transform3D(3.882286, 0, -14.488887, 0, 15, 0, 14.488887, 0, 3.882286, -107.556435, 0.6221528, 75.29179)
+
+[node name="TubeCoral1" parent="SetDressing" unique_id=1575689131 instance=ExtResource("8_ursl2")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -104.973785, 0.5059404, 8.32288)
+
+[node name="TubeCoral2" parent="SetDressing" unique_id=1074454465 instance=ExtResource("8_ursl2")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 70.41349, 0.5059404, -144.69412)
+
+[node name="TubeCoral3" parent="SetDressing" unique_id=273254974 instance=ExtResource("8_ursl2")]
+transform = Transform3D(-19.775127, 0, -2.9907055, 0, 20, 0, 2.9907055, 0, -19.775127, 158.14697, 0.5059404, -42.1876)
+
+[node name="TubeCoral4" parent="SetDressing" unique_id=1633111806 instance=ExtResource("8_ursl2")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 94.32965, 0.5059404, 49.43447)
+
+[node name="TubeCoral5" parent="SetDressing" unique_id=1100283213 instance=ExtResource("8_ursl2")]
+transform = Transform3D(4.0590067, 0, 14.440376, 0, 15, 0, -14.440376, 0, 4.0590067, 50.64499, 0.5059404, -95.22359)
+
+[node name="Coral1" parent="." unique_id=1466036603 instance=ExtResource("9_12t7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.244523, 0.5682101, 22.505623)
+
+[node name="Coral2" parent="." unique_id=1800408965 instance=ExtResource("10_5wxou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.490105, 0.5682101, 22.505623)
+
+[node name="Coral3" parent="." unique_id=1854982897 instance=ExtResource("11_mouyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.318787, 0.56820965, 26.985447)
+
+[node name="Coral4" parent="." unique_id=1544598446 instance=ExtResource("12_ijln6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.292467, 0.5682101, 24.242176)
+
+[node name="Coral5" parent="." unique_id=1057298416 instance=ExtResource("13_17tmq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9775305, 0.5682101, 25.389656)
+
+[node name="Coral6" parent="." unique_id=1147442869 instance=ExtResource("14_pumpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.620107, 0.5682101, 15.931326)
+
+[node name="Coral" parent="." unique_id=739915479 instance=ExtResource("15_0bvb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.757061, 0.5682101, 26.95835)
 
 [connection signal="body_exited" from="TrafficLightIntersection" to="TrafficLightIntersection" method="_on_body_exited"]
 [connection signal="body_entered" from="TrafficLightIntersection/GrantedPassage" to="TrafficLightIntersection" method="_on_granted_passage_body_entered"]

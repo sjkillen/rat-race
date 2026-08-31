@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d1e3qwqxlpipu"
+path="res://.godot/imported/pirate_ship.obj-3ba5642a3b328a8b96caa73b591444b0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pirate_ship.obj-3ba5642a3b328a8b96caa73b591444b0.mesh"]
+
+source_file="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/obj/pirate_ship.obj"
+dest_files=["res://.godot/imported/pirate_ship.obj-3ba5642a3b328a8b96caa73b591444b0.mesh", "res://.godot/imported/pirate_ship.obj-3ba5642a3b328a8b96caa73b591444b0.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
