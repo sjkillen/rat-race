@@ -1,9 +1,41 @@
 [gd_scene format=3 uid="uid://ch77c0w0l6epi"]
 
+[ext_resource type="Shader" uid="uid://11dxf2d1fht5" path="res://multiplayer/world_environment.gdshader" id="1_x5sbl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qyor"]
+shader = ExtResource("1_x5sbl")
+shader_parameter/sky_color = Color(0.2, 0.5, 0.9, 1)
+shader_parameter/horizon_color = Color(0.5, 0.8, 1, 1)
+shader_parameter/horizon_blur = 0.1
+shader_parameter/sun_color = Color(1, 1, 0.8, 1)
+shader_parameter/sun_size = 0.05
+shader_parameter/sun_blur = 0.01
+shader_parameter/cloud_color = Color(1, 1, 1, 1)
+shader_parameter/cloud_edge_sharpness = 0.1
+shader_parameter/cloud_scale = 2.0
+shader_parameter/cloud_speed = 0.02
+
+[sub_resource type="Sky" id="Sky_eee58"]
+sky_material = SubResource("ShaderMaterial_1qyor")
+
 [sub_resource type="Environment" id="Environment_5nnk1"]
+background_mode = 2
+sky = SubResource("Sky_eee58")
+ambient_light_color = Color(0, 0.32899997, 0.42, 1)
+ssao_enabled = true
+glow_intensity = 3.1
+glow_bloom = 0.2
+fog_enabled = true
+fog_light_color = Color(0.10551209, 0.609273, 0.994502, 1)
+fog_aerial_perspective = 0.041
 
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=409520120]
 environment = SubResource("Environment_5nnk1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=761621237]
 transform = Transform3D(1, 0, 0, 0, 0.6083521, 0.79366726, 0, -0.79366726, 0.6083521, 0, 0, 0)
+light_color = Color(0.95, 0.81035, 0.4845, 1)
+light_indirect_energy = 2.584
+light_volumetric_fog_energy = 4.485
+shadow_enabled = true
+shadow_opacity = 0.72

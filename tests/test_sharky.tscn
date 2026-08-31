@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://di8383vohsqd2" path="res://shark/shark.tscn" id="1_obwbf"]
 [ext_resource type="PackedScene" uid="uid://vxmb7eibvqjd" path="res://track_with_lights.tscn" id="2_e5s2f"]
-[ext_resource type="PackedScene" uid="uid://ch77c0w0l6epi" path="res://multiplayer/world_environment.tscn" id="3_ug0yr"]
 
 [node name="TestSharky" type="Node3D" unique_id=728541101]
 
@@ -10,5 +9,3 @@
 transform = Transform3D(-0.36192733, 0, -0.93220633, 0, 1, 0, 0.93220633, 0, -0.36192733, 0, 1.8210125, 0)
 
 [node name="TrackWithLights" parent="." unique_id=307923840 instance=ExtResource("2_e5s2f")]
-
-[node name="WorldEnvironment" parent="." unique_id=409520120 instance=ExtResource("3_ug0yr")]
