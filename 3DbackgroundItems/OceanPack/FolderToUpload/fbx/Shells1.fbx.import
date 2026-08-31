@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Shells1.fbx-ea3219f20b5fb98709325068932f5f7b.
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/ClownFish.fbx-ab4c8f36fec0293b6e87e4c42f34da2
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false

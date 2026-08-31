@@ -1,20 +1,40 @@
 [gd_scene format=3 uid="uid://vxmb7eibvqjd"]
 
+[ext_resource type="PackedScene" uid="uid://ch77c0w0l6epi" path="res://multiplayer/world_environment.tscn" id="1_evwic"]
 [ext_resource type="PackedScene" uid="uid://dtdg1mcav38fx" path="res://TrafficLightIntersection.tscn" id="1_i1ebg"]
 [ext_resource type="PackedScene" uid="uid://cc3phii3vqdxo" path="res://TrafficLight.tscn" id="2_vhnp7"]
+[ext_resource type="Shader" uid="uid://dw0xyuq808u7w" path="res://sand.gdshader" id="3_irk6q"]
 [ext_resource type="PackedScene" uid="uid://jk2prr2ucedt" path="res://track.tscn" id="3_v2kud"]
 [ext_resource type="PackedScene" uid="uid://7ygqtx50y88e" path="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/gltf/crashed_ship.glb" id="4_h3j75"]
 [ext_resource type="PackedScene" uid="uid://dsjwilehwu8ii" path="res://3DbackgroundItems/coral.glb" id="4_jp6y1"]
+[ext_resource type="PackedScene" uid="uid://0hdsf54a5etj" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Rock1.fbx" id="5_5syen"]
 [ext_resource type="PackedScene" uid="uid://csk4isl7xdmhe" path="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/gltf/chest_old.glb" id="5_iaoep"]
+[ext_resource type="PackedScene" uid="uid://0jtrgsrjmead" path="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/gltf/submarine.glb" id="5_tm7f2"]
+[ext_resource type="PackedScene" uid="uid://cb0wrhbluf7h7" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Rock2.fbx" id="6_dne15"]
+[ext_resource type="PackedScene" uid="uid://od2j636o2s4d" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Rock3.fbx" id="7_f8j4j"]
 [ext_resource type="PackedScene" uid="uid://lmgky4p80c42" path="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/gltf/anemonie.glb" id="7_u2msv"]
+[ext_resource type="PackedScene" uid="uid://gmkhubsdr8w3" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Rock4.fbx" id="8_t36gp"]
 [ext_resource type="PackedScene" uid="uid://byy23yke2dd37" path="res://3DbackgroundItems/[AR] Ocean Assets - Starter Pack/3. Models/gltf/small_coral.glb" id="8_ursl2"]
-[ext_resource type="PackedScene" uid="uid://cyppvdmrfxktg" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral1.fbx" id="9_12t7c"]
-[ext_resource type="PackedScene" uid="uid://woipksvaqesu" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral2.fbx" id="10_5wxou"]
-[ext_resource type="PackedScene" uid="uid://cwh6a66nw53el" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral3.fbx" id="11_mouyr"]
-[ext_resource type="PackedScene" uid="uid://bqyjq6716idf3" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral4.fbx" id="12_ijln6"]
-[ext_resource type="PackedScene" uid="uid://c4bmtj43wiwgj" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral5.fbx" id="13_17tmq"]
-[ext_resource type="PackedScene" uid="uid://br5knhenkbl8a" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral6.fbx" id="14_pumpp"]
-[ext_resource type="PackedScene" uid="uid://ba5mwcjgdsaw4" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Coral.fbx" id="15_0bvb2"]
+[ext_resource type="PackedScene" uid="uid://dfwtlcvvhtrg7" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Rock5.fbx" id="9_77dk3"]
+[ext_resource type="PackedScene" uid="uid://dsfepq8gfdjrj" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Rock6.fbx" id="10_2hjj6"]
+[ext_resource type="PackedScene" uid="uid://cfolryxsahsdy" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Rock7.fbx" id="11_sa6ri"]
+[ext_resource type="PackedScene" uid="uid://rt11fjwrjagv" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Rock8.fbx" id="12_flqq1"]
+[ext_resource type="PackedScene" uid="uid://8nguixxi0sf1" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Rock.fbx" id="13_wdlyj"]
+[ext_resource type="PackedScene" uid="uid://bhlfk11emfcqm" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Shells2.fbx" id="19_pxwnk"]
+[ext_resource type="PackedScene" uid="uid://clbkuul8n0fy7" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Shells3.fbx" id="20_dw547"]
+[ext_resource type="PackedScene" uid="uid://cfs0h7nbs11q4" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Shells.fbx" id="21_eai5g"]
+[ext_resource type="PackedScene" uid="uid://bp0f1wmdr6plv" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/StarFish.fbx" id="22_m55l6"]
+[ext_resource type="PackedScene" uid="uid://cy5md6s0korea" path="res://3DbackgroundItems/OceanPack/FolderToUpload/fbx/Shells1.fbx" id="30_l24ah"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8hqhv"]
+render_priority = 0
+shader = ExtResource("3_irk6q")
+shader_parameter/sand_color = Color(0.95, 0.81035, 0.55100006, 1)
+shader_parameter/speed = Vector2(0.1, 0)
+shader_parameter/wave_scale = 0.8
+shader_parameter/wave_power = 80.0
+shader_parameter/wave_interval = 10.0
+shader_parameter/normal_depth = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r7jd2"]
 radius = 10.3079
@@ -51,12 +71,22 @@ size = Vector3(600, 1, 600)
 
 [node name="TrackWithLights" type="Node3D" unique_id=307923840]
 
+[node name="WorldEnvironment" parent="." unique_id=409520120 instance=ExtResource("1_evwic")]
+
 [node name="track" parent="." unique_id=396635011 instance=ExtResource("3_v2kud")]
 unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="TrackConstruct" parent="track" index="0" unique_id=153988756]
+surface_material_override/0 = SubResource("ShaderMaterial_8hqhv")
+
+[node name="CollisionShape3D" parent="track/TrackConstruct/StaticBody3D" parent_id_path=PackedInt32Array(396635011, 1900718197) index="0" unique_id=582348759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004732242, 1.3934914e-07, -0.0004220372)
 
 [node name="TrafficLightIntersection" parent="." unique_id=811908910 node_paths=PackedStringArray("track") instance=ExtResource("1_i1ebg")]
 transform = Transform3D(0.0011674918, 0, 0.99999934, 0, 1, 0, -0.99999934, 0, 0.0011674918, -24.74487, 0.45121837, -17.771605)
 track = NodePath("../track")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection/GrantedPassage" parent_id_path=PackedInt32Array(811908910, 1746356572) index="0" unique_id=1695127192]
 shape = SubResource("SphereShape3D_r7jd2")
@@ -81,6 +111,7 @@ on_state = 1
 [node name="TrafficLightIntersection6" parent="." unique_id=1824892799 node_paths=PackedStringArray("track") instance=ExtResource("1_i1ebg")]
 transform = Transform3D(-0.28677183, 0, 0.95799893, 0, 1, 0, -0.95799893, 0, -0.28677183, -62.75653, 0.45121837, 54.193886)
 track = NodePath("../track")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection6/GrantedPassage" parent_id_path=PackedInt32Array(1824892799, 1746356572) index="0" unique_id=84333404]
 shape = SubResource("SphereShape3D_r7jd2")
@@ -105,6 +136,7 @@ on_state = 1
 [node name="TrafficLightIntersection2" parent="." unique_id=1211643701 node_paths=PackedStringArray("track") instance=ExtResource("1_i1ebg")]
 transform = Transform3D(-0.63013685, 0, 0.7764841, 0, 1, 0, -0.7764841, 0, -0.63013685, -48.079613, 0.35101914, -49.288235)
 track = NodePath("../track")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection2/GrantedPassage" parent_id_path=PackedInt32Array(1211643701, 1746356572) index="0" unique_id=1013790842]
 shape = SubResource("SphereShape3D_r7jd2")
@@ -129,6 +161,7 @@ on_state = 1
 [node name="TrafficLightIntersection4" parent="." unique_id=99710847 node_paths=PackedStringArray("track") instance=ExtResource("1_i1ebg")]
 transform = Transform3D(-0.98933035, 0, -0.14568955, 0, 1, 0, 0.14568955, 0, -0.98933035, 47.230255, 0.44134402, 15.554144)
 track = NodePath("../track")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection4/GrantedPassage" parent_id_path=PackedInt32Array(99710847, 1746356572) index="0" unique_id=1491544212]
 shape = SubResource("SphereShape3D_r7jd2")
@@ -153,6 +186,7 @@ on_state = 1
 [node name="TrafficLightIntersection3" parent="." unique_id=1913216878 node_paths=PackedStringArray("track") instance=ExtResource("1_i1ebg")]
 transform = Transform3D(-0.99320066, 0, -0.116414554, 0, 1, 0, 0.116414554, 0, -0.99320066, -38.426327, 1.0917361, -70.21416)
 track = NodePath("../track")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection3/GrantedPassage" parent_id_path=PackedInt32Array(1913216878, 1746356572) index="0" unique_id=1665925549]
 shape = SubResource("SphereShape3D_r7jd2")
@@ -177,6 +211,7 @@ on_state = 1
 [node name="TrafficLightIntersection5" parent="." unique_id=1250429765 node_paths=PackedStringArray("track") instance=ExtResource("1_i1ebg")]
 transform = Transform3D(-0.9952232, 0, 0.09762473, 0, 1, 0, -0.09762473, 0, -0.9952232, 20.059017, 1.0917361, -70.21416)
 track = NodePath("../track")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLightIntersection5/GrantedPassage" parent_id_path=PackedInt32Array(1250429765, 1746356572) index="0" unique_id=1271009178]
 shape = SubResource("SphereShape3D_r7jd2")
@@ -199,8 +234,10 @@ transform = Transform3D(0.10676417, 0, -0.99428445, 0, 1, 0, 0.99428445, 0, 0.10
 on_state = 1
 
 [node name="GroundPlane" type="StaticBody3D" parent="." unique_id=1088410784]
+metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GroundPlane" unique_id=45841154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014202118, 0.078596115, -0.060783386)
 mesh = SubResource("BoxMesh_4kxuq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundPlane" unique_id=1663845543]
@@ -208,8 +245,110 @@ shape = SubResource("BoxShape3D_h3j75")
 
 [node name="SetDressing" type="Node3D" parent="." unique_id=1231004441]
 
+[node name="submarine" parent="SetDressing" unique_id=516605539 instance=ExtResource("5_tm7f2")]
+transform = Transform3D(-9.172991, 0, -3.9819887, 0, 10, 0, 3.9819887, 0, -9.172991, 56.07794, 32.365017, 97.42726)
+
+[node name="Rock1" parent="SetDressing" unique_id=1737860208 instance=ExtResource("5_5syen")]
+transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 10, 24.118755, 1.9328636, -27.899918)
+
+[node name="Rock9" parent="SetDressing" unique_id=379829398 instance=ExtResource("5_5syen")]
+transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 10, 45.560654, 1.9328636, -25.876549)
+
+[node name="Rock2" parent="SetDressing" unique_id=828182393 instance=ExtResource("6_dne15")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 51.609863, -0.38546097, 26.579334)
+
+[node name="Rock10" parent="SetDressing" unique_id=658081586 instance=ExtResource("6_dne15")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 28.112404, -0.38546097, -10.985447)
+
+[node name="Rock26" parent="SetDressing" unique_id=779347839 instance=ExtResource("6_dne15")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -60.303078, -0.38545716, -33.52564)
+
+[node name="Rock3" parent="SetDressing" unique_id=1740432204 instance=ExtResource("7_f8j4j")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 50.66467, 0.21197605, 20.695917)
+
+[node name="Rock21" parent="SetDressing" unique_id=2128691895 instance=ExtResource("6_dne15")]
+transform = Transform3D(-0.34541366, 0, -2.9800484, 0, 3, 0, 2.9800484, 0, -0.34541366, -74.17268, -0.38546097, 31.248337)
+
+[node name="Rock22" parent="SetDressing" unique_id=1265277162 instance=ExtResource("7_f8j4j")]
+transform = Transform3D(-0.23027577, 0, -1.986699, 0, 2, 0, 1.986699, 0, -0.23027577, -68.21956, 0.21197605, 30.986835)
+
+[node name="Rock11" parent="SetDressing" unique_id=1567302716 instance=ExtResource("7_f8j4j")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 21.692276, 0.21197224, -16.310022)
+
+[node name="Rock12" parent="SetDressing" unique_id=445329128 instance=ExtResource("7_f8j4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.689747, 0.2119646, -33.47674)
+
+[node name="Rock27" parent="SetDressing" unique_id=226147975 instance=ExtResource("7_f8j4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.216446, 0.21196079, -65.9498)
+
+[node name="Rock28" parent="SetDressing" unique_id=2025837289 instance=ExtResource("7_f8j4j")]
+transform = Transform3D(-1.5914514, 0, -1.2113144, 0, 2, 0, 1.2113144, 0, -1.5914514, -75.134186, 0.21195698, -96.19722)
+
+[node name="Rock4" parent="SetDressing" unique_id=1402199644 instance=ExtResource("8_t36gp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 47.475197, 0.28781784, -4.0239754)
+
+[node name="Rock5" parent="SetDressing" unique_id=1527155939 instance=ExtResource("9_77dk3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.579674, 1.932866, -19.32042)
+
+[node name="Rock6" parent="SetDressing" unique_id=462743384 instance=ExtResource("10_2hjj6")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 26.199867, 1.9328641, -22.288383)
+
+[node name="Rock7" parent="SetDressing" unique_id=1380890242 instance=ExtResource("11_sa6ri")]
+transform = Transform3D(1.9997548, 0, 0.031314407, 0, 2, 0, -0.031314407, 0, 1.9997548, 78.33484, 1.9328564, -0.36358833)
+
+[node name="Rock8" parent="SetDressing" unique_id=476957746 instance=ExtResource("12_flqq1")]
+transform = Transform3D(1.9997548, 0, 0.031314407, 0, 2, 0, -0.031314407, 0, 1.9997548, 78.33484, 1.9328564, -0.36358833)
+
+[node name="Rock" parent="SetDressing" unique_id=833788044 instance=ExtResource("13_wdlyj")]
+transform = Transform3D(1.9997548, 0, 0.031314407, 0, 2, 0, -0.031314407, 0, 1.9997548, 78.33484, 1.9328564, -0.36358833)
+
+[node name="Rock16" parent="SetDressing" unique_id=1002004210 instance=ExtResource("11_sa6ri")]
+transform = Transform3D(-1.1004786, 0, -1.6700139, 0, 2, 0, 1.6700139, 0, -1.1004786, -87.6996, 1.9328564, -41.826225)
+
+[node name="Rock20" parent="SetDressing" unique_id=1692331016 instance=ExtResource("11_sa6ri")]
+transform = Transform3D(0.29273695, 0, 1.9784602, 0, 2, 0, -1.9784602, 0, 0.29273695, -48.360527, 1.9328564, -20.147612)
+
+[node name="Rock17" parent="SetDressing" unique_id=582218849 instance=ExtResource("12_flqq1")]
+transform = Transform3D(-1.1004786, 0, -1.6700139, 0, 2, 0, 1.6700139, 0, -1.1004786, -87.6996, 1.9328564, -41.826225)
+
+[node name="Rock18" parent="SetDressing" unique_id=447485225 instance=ExtResource("13_wdlyj")]
+transform = Transform3D(-1.1004786, 0, -1.6700139, 0, 2, 0, 1.6700139, 0, -1.1004786, -87.6996, 1.9328564, -41.826225)
+
+[node name="Rock19" parent="SetDressing" unique_id=1486183581 instance=ExtResource("13_wdlyj")]
+transform = Transform3D(-1.1004786, 0, -1.6700139, 0, 2, 0, 1.6700139, 0, -1.1004786, -59.798748, 1.9328564, -37.147003)
+
+[node name="Rock13" parent="SetDressing" unique_id=1752995035 instance=ExtResource("11_sa6ri")]
+transform = Transform3D(1.3234714, 0, 1.4994743, 0, 2, 0, -1.4994743, 0, 1.3234714, 49.29296, 1.9328564, -42.366837)
+
+[node name="Rock14" parent="SetDressing" unique_id=701820922 instance=ExtResource("12_flqq1")]
+transform = Transform3D(1.3234714, 0, 1.4994743, 0, 2, 0, -1.4994743, 0, 1.3234714, 49.29296, 1.9328564, -42.366837)
+
+[node name="Rock15" parent="SetDressing" unique_id=1698724333 instance=ExtResource("13_wdlyj")]
+transform = Transform3D(1.3234714, 0, 1.4994743, 0, 2, 0, -1.4994743, 0, 1.3234714, 49.29296, 1.9328564, -42.366837)
+
+[node name="Rock29" parent="SetDressing" unique_id=969050835 instance=ExtResource("11_sa6ri")]
+transform = Transform3D(0.14921618, 0, 0.9888046, 0, 1, 0, -0.9888046, 0, 0.14921618, -66.88199, 1.9328603, -75.527016)
+
+[node name="Rock30" parent="SetDressing" unique_id=1016709152 instance=ExtResource("12_flqq1")]
+transform = Transform3D(0.14921618, 0, 0.9888046, 0, 1, 0, -0.9888046, 0, 0.14921618, -68.16678, 1.9328603, -75.79014)
+
+[node name="Rock32" parent="SetDressing" unique_id=165643097 instance=ExtResource("12_flqq1")]
+transform = Transform3D(0.7033669, 0, 0.71082693, 0, 1, 0, -0.71082693, 0, 0.7033669, -73.321144, 1.9328603, -80.54195)
+
+[node name="Rock31" parent="SetDressing" unique_id=490987982 instance=ExtResource("13_wdlyj")]
+transform = Transform3D(0.14921618, 0, 0.9888046, 0, 1, 0, -0.9888046, 0, 0.14921618, -66.88199, 1.9328603, -75.527016)
+
+[node name="Rock23" parent="SetDressing" unique_id=1299653595 instance=ExtResource("11_sa6ri")]
+transform = Transform3D(-1.7689974, 0, -0.9330852, 0, 2, 0, 0.9330852, 0, -1.7689974, -50.248325, 1.9328564, 25.750793)
+
+[node name="Rock24" parent="SetDressing" unique_id=803659451 instance=ExtResource("12_flqq1")]
+transform = Transform3D(-1.7689974, 0, -0.9330852, 0, 2, 0, 0.9330852, 0, -1.7689974, -50.248325, 1.9328564, 25.750793)
+
+[node name="Rock25" parent="SetDressing" unique_id=517406446 instance=ExtResource("13_wdlyj")]
+transform = Transform3D(-1.7689974, 0, -0.9330852, 0, 2, 0, 0.9330852, 0, -1.7689974, -50.248325, 1.9328564, 25.750793)
+
 [node name="chest_old" parent="SetDressing" unique_id=844004282 instance=ExtResource("5_iaoep")]
-transform = Transform3D(9.211854, 0, -3.8912394, 0, 10, 0, 3.8912394, 0, 9.211854, 29.643517, 3.70537, -20.991684)
+transform = Transform3D(8.2906685, 0, -3.5021155, 0, 9, 0, 3.5021155, 0, 8.2906685, 29.643517, 3.70537, -20.991684)
 
 [node name="crashed_ship2" parent="SetDressing" unique_id=1889778110 instance=ExtResource("4_h3j75")]
 transform = Transform3D(-25.918392, 0, -15.10751, 0, 30, 0, 15.10751, 0, -25.918392, 19.83052, -20, 72.60149)
@@ -220,17 +359,44 @@ transform = Transform3D(23.029634, 0, -9.728099, 0, 25, 0, 9.728099, 0, 23.02963
 [node name="anemonie3" parent="SetDressing" unique_id=494052898 instance=ExtResource("7_u2msv")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -54.174103, 0.7488407, -129.1283)
 
+[node name="anemonie5" parent="SetDressing" unique_id=1488674193 instance=ExtResource("7_u2msv")]
+transform = Transform3D(7.8481445, 0, -12.78306, 0, 15, 0, 12.78306, 0, 7.8481445, -130.36172, 0.7488407, -94.481544)
+
+[node name="anemonie4" parent="SetDressing" unique_id=1717412144 instance=ExtResource("7_u2msv")]
+transform = Transform3D(9.795939, 0, 2.009868, 0, 10, 0, -2.009868, 0, 9.795939, -61.924717, 0.7488445, -28.534245)
+
+[node name="anemonie6" parent="SetDressing" unique_id=830958827 instance=ExtResource("7_u2msv")]
+transform = Transform3D(3.688843, 0, -7.098763, 0, 8, 0, 7.098763, 0, 3.688843, -17.918097, 0.7488445, -47.68508)
+
+[node name="anemonie7" parent="SetDressing" unique_id=904245403 instance=ExtResource("7_u2msv")]
+transform = Transform3D(-5.4555006, 0, -13.972742, 0, 15, 0, 13.972742, 0, -5.4555006, -28.225912, 0.7488369, 12.494358)
+
 [node name="FireCoral1" parent="SetDressing" unique_id=1271138133 instance=ExtResource("4_jp6y1")]
 transform = Transform3D(-0.2443218, 0, 9.997015, 0, 10, 0, -9.997015, 0, -0.2443218, 142.26793, 0.6221299, 4.5171432)
 
 [node name="FireCoral2" parent="SetDressing" unique_id=58012691 instance=ExtResource("4_jp6y1")]
 transform = Transform3D(2.5881908, 0, -9.659258, 0, 10, 0, 9.659258, 0, 2.5881908, 33.16288, 0.62213755, -133.49013)
 
+[node name="FireCoral4" parent="SetDressing" unique_id=153504275 instance=ExtResource("4_jp6y1")]
+transform = Transform3D(-1.579905, 0, -4.743827, 0, 5.0000005, 0, 4.743827, 0, -1.579905, -95.162346, 0.62213755, -128.23132)
+
 [node name="FireCoral3" parent="SetDressing" unique_id=478576864 instance=ExtResource("4_jp6y1")]
 transform = Transform3D(3.882286, 0, -14.488887, 0, 15, 0, 14.488887, 0, 3.882286, -107.556435, 0.6221528, 75.29179)
 
 [node name="TubeCoral1" parent="SetDressing" unique_id=1575689131 instance=ExtResource("8_ursl2")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -104.973785, 0.5059404, 8.32288)
+
+[node name="TubeCoral8" parent="SetDressing" unique_id=1832454753 instance=ExtResource("8_ursl2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.2144003, 0.5059404, 21.448483)
+
+[node name="TubeCoral9" parent="SetDressing" unique_id=1644443536 instance=ExtResource("8_ursl2")]
+transform = Transform3D(-9.992695, 0, -0.382205, 0, 10, 0, 0.382205, 0, -9.992695, -29.474308, -4.2120714, 14.680481)
+
+[node name="TubeCoral6" parent="SetDressing" unique_id=277066511 instance=ExtResource("8_ursl2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -53.02853, 0.5059404, -12.635793)
+
+[node name="TubeCoral7" parent="SetDressing" unique_id=407798662 instance=ExtResource("8_ursl2")]
+transform = Transform3D(0.8558779, 0, 2.8753214, 0, 3, 0, -2.8753214, 0, 0.8558779, -71.32859, 0.5059442, -40.633816)
 
 [node name="TubeCoral2" parent="SetDressing" unique_id=1074454465 instance=ExtResource("8_ursl2")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 70.41349, 0.5059404, -144.69412)
@@ -244,26 +410,56 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 94.32965, 0.5059404, 49.43
 [node name="TubeCoral5" parent="SetDressing" unique_id=1100283213 instance=ExtResource("8_ursl2")]
 transform = Transform3D(4.0590067, 0, 14.440376, 0, 15, 0, -14.440376, 0, 4.0590067, 50.64499, 0.5059404, -95.22359)
 
-[node name="Coral1" parent="." unique_id=1466036603 instance=ExtResource("9_12t7c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.244523, 0.5682101, 22.505623)
+[node name="Shells2" parent="SetDressing" unique_id=2014325796 instance=ExtResource("19_pxwnk")]
+transform = Transform3D(1.715384, 0, 1.0283276, 0, 2, 0, -1.0283276, 0, 1.715384, -2.1390686, 0.57938254, -15.130356)
 
-[node name="Coral2" parent="." unique_id=1800408965 instance=ExtResource("10_5wxou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.490105, 0.5682101, 22.505623)
+[node name="Shells3" parent="SetDressing" unique_id=476506021 instance=ExtResource("20_dw547")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 54.544228, 1.9671488, -0.032907486)
 
-[node name="Coral3" parent="." unique_id=1854982897 instance=ExtResource("11_mouyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.318787, 0.56820965, 26.985447)
+[node name="Shells" parent="SetDressing" unique_id=300473202 instance=ExtResource("21_eai5g")]
+transform = Transform3D(1.5322154, -1.2854245, 0, 1.2854245, 1.5322154, 0, 0, 0, 2, 7.3447466, 2.1021457, -14.886623)
 
-[node name="Coral4" parent="." unique_id=1544598446 instance=ExtResource("12_ijln6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.292467, 0.5682101, 24.242176)
+[node name="Shells8" parent="SetDressing" unique_id=324459589 instance=ExtResource("21_eai5g")]
+transform = Transform3D(2.2960825, -1.9262571, -0.13242614, 1.9281367, 2.2983232, 5.4007394e-08, 0.10145259, -0.0851118, 2.9970758, -62.694675, 2.1021457, -27.722355)
 
-[node name="Coral5" parent="." unique_id=1057298416 instance=ExtResource("13_17tmq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9775305, 0.5682101, 25.389656)
+[node name="StarFish" parent="SetDressing" unique_id=1886835978 instance=ExtResource("22_m55l6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 30.117165, 1.4858227, -0.6758385)
 
-[node name="Coral6" parent="." unique_id=1147442869 instance=ExtResource("14_pumpp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.620107, 0.5682101, 15.931326)
+[node name="Shells1" parent="SetDressing" unique_id=718317912 instance=ExtResource("30_l24ah")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.860691, 0.5980445, -7.0405617)
 
-[node name="Coral" parent="." unique_id=739915479 instance=ExtResource("15_0bvb2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.757061, 0.5682101, 26.95835)
+[node name="Shells4" parent="SetDressing" unique_id=1555050229 instance=ExtResource("19_pxwnk")]
+transform = Transform3D(1.715384, 0, 1.0283276, 0, 2, 0, -1.0283276, 0, 1.715384, 59.299114, 0.57938254, -16.232428)
+
+[node name="Shells9" parent="SetDressing" unique_id=1516169333 instance=ExtResource("19_pxwnk")]
+transform = Transform3D(1.9995735, 0, 0.041299343, 0, 2, 0, -0.041299343, 0, 1.9995735, 32.73819, 0.57938254, -55.562263)
+
+[node name="Shells10" parent="SetDressing" unique_id=1943138152 instance=ExtResource("19_pxwnk")]
+transform = Transform3D(1.3468865, 0, -1.478478, 0, 2, 0, 1.478478, 0, 1.3468865, 12.685825, 0.57939017, 22.205734)
+
+[node name="Shells11" parent="SetDressing" unique_id=34217288 instance=ExtResource("19_pxwnk")]
+transform = Transform3D(1.7254052, 0, -1.0114231, 0, 2, 0, 1.0114231, 0, 1.7254052, -4.221451, 0.57939017, -56.34655)
+
+[node name="Shells5" parent="SetDressing" unique_id=1436724845 instance=ExtResource("20_dw547")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 106.40572, 1.9671507, -14.870866)
+
+[node name="Shells6" parent="SetDressing" unique_id=1013344689 instance=ExtResource("21_eai5g")]
+transform = Transform3D(-1.384111, 1.161175, -0.8578515, 1.2854245, 1.5322154, 0, 0.65720665, -0.55135167, -1.8066795, 57.73575, 2.1021457, -9.637932)
+
+[node name="StarFish2" parent="SetDressing" unique_id=161161815 instance=ExtResource("22_m55l6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 67.970634, 1.4858227, -13.885551)
+
+[node name="Shells7" parent="SetDressing" unique_id=2095234830 instance=ExtResource("30_l24ah")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 66.539536, 0.5980445, -3.7452278)
+
+[node name="Shells12" parent="SetDressing" unique_id=1470443118 instance=ExtResource("30_l24ah")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.536537, 0.5980445, 3.2391624)
+
+[node name="Shells13" parent="SetDressing" unique_id=720176291 instance=ExtResource("30_l24ah")]
+transform = Transform3D(0.6579839, 0, -1.8886654, 0, 2, 0, 1.8886654, 0, 0.6579839, -48.667564, 0.59805214, -21.99693)
+
+[node name="Shells14" parent="SetDressing" unique_id=934503413 instance=ExtResource("30_l24ah")]
+transform = Transform3D(-0.18397473, 0, -1.9915204, 0, 2, 0, 1.9915204, 0, -0.18397473, -9.625694, 0.59805214, -42.2787)
 
 [connection signal="body_exited" from="TrafficLightIntersection" to="TrafficLightIntersection" method="_on_body_exited"]
 [connection signal="body_entered" from="TrafficLightIntersection/GrantedPassage" to="TrafficLightIntersection" method="_on_granted_passage_body_entered"]

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Coral1.fbx-80f838387875074bd69fc98899bb5242.s
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false

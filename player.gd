@@ -5,7 +5,8 @@ const MAX_STEER = 0.2  # 45 degrees limit on turn
 const ENGINE_POWER = 500
 const MIN_SPEED = 5
 const SPEED_CUSHION = 10
-const AUTOSTART_FORCE = MIN_SPEED + SPEED_CUSHION
+const AUTOSTART_FORCE = 20
+var didRattle = false
 var up_to_speed = false  # When true, allows player to die when below threshold
 
 signal speedometer(msg: String)
@@ -51,10 +52,17 @@ func _physics_process(delta: float) -> void:
 		speed_status.emit("Up to Speed!")
 
 	# Destroys car if player falls below threshold speed.
-	#if fwd_mps < MIN_SPEED and up_to_speed == true:
-		#destroy_car()
+	if fwd_mps < MIN_SPEED and up_to_speed == true:
+		destroy_car()
 
 func destroy_car() -> void:
+	death_rattle()
 	alive_status.emit(false)
 	linear_velocity = (Vector3.ZERO)
 	speed_status.emit("Too Slow!")
+	
+func death_rattle() -> void:
+	if !didRattle:
+		var death_rattle = get_node("shark/DeathRattle")
+		death_rattle.emitting = true
+		didRattle = true

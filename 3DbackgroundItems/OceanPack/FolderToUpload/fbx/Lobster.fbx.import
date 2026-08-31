@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Lobster.fbx-b91cc863f64fe59fda89694a4563996d.
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false

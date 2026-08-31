@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/BrownFish.fbx-31475660653462f2eb066ae27cb14b1
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
