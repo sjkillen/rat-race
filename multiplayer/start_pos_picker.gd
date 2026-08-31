@@ -18,6 +18,7 @@ func cast_ray_from_mouse() -> void:
 	var origin := cam.project_ray_origin(mousepos)
 	var end := origin + cam.project_ray_normal(mousepos) * RAY_LENGTH
 	var query := PhysicsRayQueryParameters3D.create(origin, end)
+	#query.collision_mask = 1 << 5
 	query.collide_with_areas = true
 
 	var result = space_state.intersect_ray(query)
