@@ -3,7 +3,7 @@ class_name Player
 
 const MAX_STEER = 0.2  # 45 degrees limit on turn
 const ENGINE_POWER = 500
-const MIN_SPEED = 20
+const MIN_SPEED = 5
 const SPEED_CUSHION = 10
 const AUTOSTART_FORCE = MIN_SPEED + SPEED_CUSHION
 var up_to_speed = false  # When true, allows player to die when below threshold
@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	# Automatically accelerate the player into a safe speed
 	if fwd_mps <= (MIN_SPEED + SPEED_CUSHION) and up_to_speed == false:
 		# Disable the controls
-		#engine_force = 0.0
+		engine_force = 0.0
 		# Uncomment to get rid of steering
 		#steering = 0.0
 		speed_status.emit("Accelerating...")
@@ -50,8 +50,8 @@ func _physics_process(delta: float) -> void:
 		speed_status.emit("Up to Speed!")
 
 	# Destroys car if player falls below threshold speed.
-	#if fwd_mps < MIN_SPEED and up_to_speed == true:
-		#destroy_car()
+	if fwd_mps < MIN_SPEED and up_to_speed == true:
+		destroy_car()
 
 func destroy_car() -> void:
 	alive_status.emit(false)

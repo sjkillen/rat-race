@@ -10,6 +10,33 @@ radius = 10.3079
 [sub_resource type="SphereShape3D" id="SphereShape3D_4sc8i"]
 radius = 13.343554
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qwqyf"]
+seed = 3
+frequency = 1.0
+fractal_octaves = 8
+fractal_weighted_strength = 0.3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_62yky"]
+width = 2048
+height = 2048
+noise = SubResource("FastNoiseLite_qwqyf")
+as_normal_map = true
+bump_strength = 26.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mm1bc"]
+albedo_color = Color(0.69, 0.576495, 0.36569998, 1)
+metallic_specular = 0.0
+roughness_texture = SubResource("NoiseTexture2D_62yky")
+normal_enabled = true
+normal_scale = -8.29
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kxuq"]
+material = SubResource("StandardMaterial3D_mm1bc")
+size = Vector3(600, 1, 600)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h3j75"]
+size = Vector3(600, 1, 600)
+
 [node name="TrackWithLights" type="Node3D" unique_id=307923840]
 
 [node name="track" parent="." unique_id=396635011 instance=ExtResource("3_v2kud")]
@@ -158,6 +185,14 @@ on_state = 1
 [node name="TrafficLight4" parent="TrafficLightIntersection5" unique_id=1456793363 instance=ExtResource("2_vhnp7")]
 transform = Transform3D(0.10676417, 0, -0.99428445, 0, 1, 0, 0.99428445, 0, 0.10676417, 3.8351688, -0.12828958, 4.39402)
 on_state = 1
+
+[node name="GroundPlane" type="StaticBody3D" parent="." unique_id=1088410784]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GroundPlane" unique_id=45841154]
+mesh = SubResource("BoxMesh_4kxuq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundPlane" unique_id=1663845543]
+shape = SubResource("BoxShape3D_h3j75")
 
 [connection signal="body_exited" from="TrafficLightIntersection" to="TrafficLightIntersection" method="_on_body_exited"]
 [connection signal="body_entered" from="TrafficLightIntersection/GrantedPassage" to="TrafficLightIntersection" method="_on_granted_passage_body_entered"]

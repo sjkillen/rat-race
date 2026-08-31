@@ -51,10 +51,11 @@ func state_transition():
 		enter_EMPTY.rpc()
 	if game_state == GameState.EMPTY and connected_players > 0:
 		enter_WAITING.rpc()
+	#if game_state == GameState.RACING and connected_players == 1:
+		#enter_WAITING.rpc()
+	# TODO winner
 	if game_state == GameState.WAITING and %WaitingTimer.time_left == 0.0:
 		enter_RACING.rpc()
-	if game_state == GameState.RACING and connected_players == 1:
-		enter_WAITING.rpc()
 	if game_state != old_state:
 		print("Game state changed to ", GameState.keys()[game_state])
 		announce_game_state_change.rpc()
